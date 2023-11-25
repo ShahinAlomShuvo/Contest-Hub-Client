@@ -1,0 +1,26 @@
+[
+  {
+    "name": "John Doe",
+    "image": "https://i.ibb.co/pRfVXK1/istockphoto-1359027831-612x612.jpg",
+    "desc": "A round of applause for the Gaming Contest Winner! Their strategic gameplay and exceptional skills have set them apart in the virtual arena.",
+    "prizeMoney": 3000
+  },
+  {
+    "name": "Lisa",
+    "image": "https://i.ibb.co/T8c2SjG/post-131-web.jpg",
+    "desc": "Hats off to the Winner for her eloquent and thought-provoking article that captivated readers. As the Article Writing Contest Winner, her words have left an indelible mark.",
+    "prizeMoney": 3500
+  },
+  {
+    "name": "Sara Bell",
+    "image": "https://i.ibb.co/27WxDjW/52094008355-84936df8d2-b.jpg",
+    "desc": "Congratulations to The winner for her outstanding business proposal that redefines industry standards, She achieved it based on her unique proposal.",
+    "prizeMoney": 2900
+  },
+  {
+    "name": "Natsha",
+    "image": "https://i.ibb.co/G9FXnGJ/smiling-gamer-with-headphones-celebrating-win-game-by-showing-victory-sign-while-playing-live-video.jpg",
+    "desc": "A round of applause for the Gaming Contest Winner! Their strategic gameplay and exceptional skills have set them apart in the virtual arena.",
+    "prizeMoney": 280
+  }
+]

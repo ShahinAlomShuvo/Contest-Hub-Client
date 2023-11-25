@@ -19,7 +19,7 @@ const SignIn = () => {
       const res = await socialPlatform();
       Swal.fire({
         title: "Congratulation!",
-        text: "Registration Successful!",
+        text: "Login Successful!",
         icon: "success",
       });
       console.log(res.user);
