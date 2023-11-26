@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
-const ContestCard = ({ contest }) => {
-  const { description, attempt_count, banner, image, name } = contest;
+const ContestCard = ({ items }) => {
+  const { description, attempt_count, banner, image, name, _id } = items;
   const desc = description?.slice(0, 160);
   return (
     <div className='hover:shadow-2xl  transition   bg-white rounded-md'>
@@ -19,12 +19,14 @@ const ContestCard = ({ contest }) => {
           Participants:{attempt_count}
         </p>
         <p className='font-light text-neutral-500'>{desc}......</p>
-        <button
-          className='middle none center rounded-lg bg-[#4B4436] py-3.5 px-7 font-sans text-xs font-bold  text-white shadow-md shadow-stone-500/20 transition-all hover:shadow-lg hover:shadow-stone-500/40  active:opacity-[0.45] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none w-full capitalize'
-          data-ripple-light='true'
-        >
-          Contest Details
-        </button>
+        <Link to={`/allContest/${_id}`}>
+          <button
+            className='middle none center rounded-lg bg-[#4B4436] py-3.5 px-7 font-sans text-xs font-bold  text-white shadow-md shadow-stone-500/20 transition-all hover:shadow-lg hover:shadow-stone-500/40  active:opacity-[0.45] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none w-full capitalize'
+            data-ripple-light='true'
+          >
+            Contest Details
+          </button>
+        </Link>
       </div>
     </div>
   );

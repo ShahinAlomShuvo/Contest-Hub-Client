@@ -1,7 +1,9 @@
 import ContestCard from "../../Components/Shared/ContestCard";
 import SectionHeader from "../../Components/Shared/SectionHeader";
+import useContest from "../../Hook/useContest";
 
-const PopularContest = ({ data }) => {
+const PopularContest = () => {
+  const [contest, isPending] = useContest();
   return (
     <>
       <div className='bg-base-300 py-10'>
@@ -12,8 +14,12 @@ const PopularContest = ({ data }) => {
         the best, and make your mark in these thrilling arenas of excellence.`}
         ></SectionHeader>
         <div className='grid grid-cols-1 md:grid-cols-3  container mx-auto gap-10'>
-          {data.map((contest, idx) => (
-            <ContestCard key={idx} contest={contest}></ContestCard>
+          {contest?.map((items) => (
+            <ContestCard
+              key={items._id}
+              items={items}
+              isPending={isPending}
+            ></ContestCard>
           ))}
         </div>
       </div>

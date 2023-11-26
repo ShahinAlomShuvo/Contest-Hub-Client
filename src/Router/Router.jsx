@@ -23,7 +23,12 @@ const router = createBrowserRouter([
       {
         path: "/allContest",
         element: <AllContest></AllContest>,
-        loader: () => fetch("/data.json"),
+      },
+      {
+        path: "/allContest/:id",
+        element: <AllContest></AllContest>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/contest/${params.id}`),
       },
       {
         path: "/signIn",
