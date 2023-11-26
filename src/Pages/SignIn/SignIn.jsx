@@ -1,8 +1,9 @@
 import { Helmet } from "react-helmet";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import useAuth from "../../Hook/useAuth";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../Hook/useAxiosPublic";
 
 const SignIn = () => {
   const {
@@ -12,16 +13,29 @@ const SignIn = () => {
   } = useForm();
 
   const { signInUser, googleSignIn, githubLogin } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   //   Social SignIn
   const socialSignIn = async (socialPlatform) => {
     try {
       const res = await socialPlatform();
-      Swal.fire({
-        title: "Congratulation!",
-        text: "Login Successful!",
-        icon: "success",
-      });
+      const userInfo = {
+        name: res.user.displayName,
+        email: res.user.email,
+        role: "user",
+      };
+      const response = await useAxiosPublic.post("/users", userInfo);
+      if (response.status === 200) {
+        Swal.fire({
+          title: "Congratulation!",
+          text: "Registration Successful!",
+          icon: "success",
+        });
+        navigate(from, { replace: true });
+        console.log(res.data);
+      }
       console.log(res.user);
     } catch (err) {
       Swal.fire({
@@ -37,6 +51,12 @@ const SignIn = () => {
   const onSubmit = async (data) => {
     try {
       const { user } = await signInUser(data.email, data.password);
+      Swal.fire({
+        title: "Congratulation!",
+        text: "Registration Successful!",
+        icon: "success",
+      });
+      navigate(from, { replace: true });
       console.log(user);
     } catch (err) {
       Swal.fire({

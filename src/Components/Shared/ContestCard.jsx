@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
 const ContestCard = ({ contest }) => {
-  const { desc, attempt_count, banner, image, name } = contest;
-  const description = desc.slice(0, 160);
+  const { description, attempt_count, banner, image, name } = contest;
+  const desc = description?.slice(0, 160);
   return (
     <div className='hover:shadow-2xl  transition   bg-white rounded-md'>
       <div className='w-full h-[180px] relative   mb-20 '>
@@ -18,7 +18,7 @@ const ContestCard = ({ contest }) => {
         <p className='font-light text-neutral-700 text-base'>
           Participants:{attempt_count}
         </p>
-        <p className='font-light text-neutral-500'>{description}......</p>
+        <p className='font-light text-neutral-500'>{desc}......</p>
         <button
           className='middle none center rounded-lg bg-[#4B4436] py-3.5 px-7 font-sans text-xs font-bold  text-white shadow-md shadow-stone-500/20 transition-all hover:shadow-lg hover:shadow-stone-500/40  active:opacity-[0.45] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none w-full capitalize'
           data-ripple-light='true'

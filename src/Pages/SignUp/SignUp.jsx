@@ -1,10 +1,11 @@
 import { Helmet } from "react-helmet";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaUser } from "react-icons/fa";
 import useAuth from "../../Hook/useAuth";
 import { imgUpload } from "../../Utility/utility";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../Hook/useAxiosPublic";
 
 const SignUp = () => {
   const {
@@ -14,17 +15,30 @@ const SignUp = () => {
   } = useForm();
 
   const { createUser, updateUser, googleSignIn } = useAuth();
+  const axiosPublic = useAxiosPublic();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   //   Social SignIn
   const socialSignIn = async (socialPlatform) => {
     try {
       const res = await socialPlatform();
-      Swal.fire({
-        title: "Congratulation!",
-        text: "Registration Successful!",
-        icon: "success",
-      });
-      console.log(res.user);
+      const userInfo = {
+        name: res.user.displayName,
+        email: res.user.email,
+        role: "user",
+      };
+      const response = await axiosPublic.post("/users", userInfo);
+      if (response.status === 200) {
+        Swal.fire({
+          title: "Congratulation!",
+          text: "Registration Successful!",
+          icon: "success",
+        });
+        navigate(from, { replace: true });
+        console.log(res.data);
+      }
     } catch (err) {
       Swal.fire({
         icon: "error",
@@ -38,7 +52,6 @@ const SignUp = () => {
   //   handle registration
   const onSubmit = async (data) => {
     try {
-      console.log(data.image);
       // upload img
       const imgData = await imgUpload(data.image[0]);
 
@@ -46,13 +59,24 @@ const SignUp = () => {
       const { user } = await createUser(data.email, data.password);
 
       // update user profile
-      await updateUser(data.name, imgData.data.display_url);
+      await updateUser(data.name, imgData);
 
-      Swal.fire({
-        title: "Congratulation!",
-        text: "Registration Successful!",
-        icon: "success",
-      });
+      const userInfo = {
+        name: data.name,
+        email: data.email,
+        role: "user",
+      };
+      const res = await axiosPublic.post("/users", userInfo);
+      if (res.status === 200) {
+        Swal.fire({
+          title: "Congratulation!",
+          text: "Registration Successful!",
+          icon: "success",
+        });
+        navigate(from, { replace: true });
+        console.log(res.data);
+      }
+      console.log(res);
 
       console.log(user);
     } catch (err) {
