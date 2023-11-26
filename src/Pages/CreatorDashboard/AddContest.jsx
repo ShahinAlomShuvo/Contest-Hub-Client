@@ -1,10 +1,12 @@
 import { useForm } from "react-hook-form";
 import { imgUpload } from "../../Utility/utility";
 import useAxiosSecure from "../../Hook/useAxiosSecure";
+import Swal from "sweetalert2";
 const AddContest = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
   const axiosSecure = useAxiosSecure();
@@ -24,16 +26,25 @@ const AddContest = () => {
     const entryFee = parseFloat(fee);
     const prizeMoney = parseFloat(prize);
 
-    const payload = {
+    const contest = {
       image,
       banner,
       entryFee,
       prizeMoney,
       attempt_count: 0,
+      status: "pending",
       ...restData,
     };
 
-    const res = await axiosSecure.post("/contest", payload);
+    const res = await axiosSecure.post("/contest", contest);
+    if (res.status === 200) {
+      reset();
+      Swal.fire({
+        title: "Good job!",
+        text: "You clicked the button!",
+        icon: "success",
+      });
+    }
     console.log(res);
   };
   return (
