@@ -36,8 +36,8 @@ const MyCreateContest = () => {
         </div>
       ) : (
         <div>
-          <h2 className='text-3xl font-semibold pb-4'>
-            Total Items: {creatorContest.length}
+          <h2 className='text-3xl font-semibold pb-4 text-center'>
+            My Added Contest: {creatorContest.length}
           </h2>
           <div className='overflow-x-auto'>
             <table className='table'>
@@ -74,7 +74,7 @@ const MyCreateContest = () => {
                     </td>
                     <th>
                       {contest.status === "pending" ? (
-                        <Link to={`/dashboard/updateItem/${contest._id}`}>
+                        <Link to={`/dashboard/updateContest/${contest._id}`}>
                           <button className='btn btn-ghost bg-slate-700'>
                             <FaEdit size={26}></FaEdit>
                           </button>

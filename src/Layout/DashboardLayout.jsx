@@ -17,9 +17,9 @@ const DashboardLayout = () => {
   const role = users.role;
 
   return (
-    <div className='grid grid-cols-4 min-h-screen  text-white'>
+    <div className='grid grid-cols-4 min-h-screen  '>
       <div className='p-10 bg-[#4B4436]'>
-        <ul className='space-y-4'>
+        <ul className='space-y-4 text-white'>
           {/* admin routes  */}
           {role === "admin" && (
             <>
@@ -130,7 +130,7 @@ const DashboardLayout = () => {
           </li>
         </ul>
       </div>
-      <div className='col-span-3  p-10 '>
+      <div className='col-span-3 bg-slate-400 p-10 '>
         <Outlet></Outlet>
       </div>
     </div>
