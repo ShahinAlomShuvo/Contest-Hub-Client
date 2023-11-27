@@ -6,8 +6,8 @@ const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PK);
 
 const Payment = () => {
   return (
-    <div className='bg-base-200 min-h-screen'>
-      <div className='container mx-auto w-[800px] mt-10 border p-20 shadow-md bg-white rounded'>
+    <div className='bg-base-200 min-h-screen flex items-center'>
+      <div className='container mx-auto w-[800px]  border p-20 shadow-md bg-white rounded'>
         <Elements stripe={stripePromise}>
           <CheckoutForm />
         </Elements>

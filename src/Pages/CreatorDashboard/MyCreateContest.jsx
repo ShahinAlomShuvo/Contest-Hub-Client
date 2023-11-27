@@ -17,7 +17,10 @@ const MyCreateContest = () => {
     queryKey: [user?.email, "creatorContest"],
     enabled: !loading,
     queryFn: async () => {
-      const res = await axiosPublic.get(`/contest/${user?.email}`);
+      const res = await axiosPublic.get(
+        encodeURI(`/creatorContest/${user?.email}`)
+      );
+
       return res.data;
     },
   });
@@ -40,13 +43,13 @@ const MyCreateContest = () => {
             <table className='table'>
               {/* head */}
               <thead>
-                <tr className='text-2xl text-white  bg-orange-400 h-20 '>
+                <tr className='text-2xl text-white  bg-[#4B4436] bg-opacity-70  h-20 '>
                   <th>#</th>
                   <th>Image</th>
                   <th>Name</th>
-                  <th>Price</th>
-                  <th>Action</th>
-                  <th>Action</th>
+                  <th>Status</th>
+                  <th>Update</th>
+                  <th>Delete</th>
                 </tr>
               </thead>
               <tbody>
@@ -63,22 +66,41 @@ const MyCreateContest = () => {
                         <div></div>
                       </div>
                     </td>
-                    <td>{contest.name}</td>
-                    <td>${contest.status}</td>
+                    <td className='font-semibold text-gray-700'>
+                      {contest.name}
+                    </td>
+                    <td className='font-semibold text-gray-700'>
+                      {contest.status}
+                    </td>
                     <th>
-                      <Link to={`/dashboard/updateItem/${contest._id}`}>
-                        <button className='btn btn-ghost bg-orange-400'>
-                          <FaEdit size={26}></FaEdit>
+                      {contest.status === "pending" ? (
+                        <Link to={`/dashboard/updateItem/${contest._id}`}>
+                          <button className='btn btn-ghost bg-slate-700'>
+                            <FaEdit size={26}></FaEdit>
+                          </button>
+                        </Link>
+                      ) : (
+                        <button className='btn btn-disabled'>
+                          <FaEdit className='' size={26}></FaEdit>
                         </button>
-                      </Link>
+                      )}
                     </th>
                     <th>
-                      <button
-                        onClick={() => handleDelete(contest)}
-                        className='btn btn-ghost bg-red-600 hover:text-red-600'
-                      >
-                        <FaTrash className='' size={26}></FaTrash>
-                      </button>
+                      {contest.status === "pending" ? (
+                        <button
+                          onClick={() => handleDelete(contest)}
+                          className='btn btn-ghost bg-red-600 hover:text-red-600'
+                        >
+                          <FaTrash className='' size={26}></FaTrash>
+                        </button>
+                      ) : (
+                        <button
+                          disabled
+                          className='btn btn-ghost bg-red-600 hover:text-red-600'
+                        >
+                          <FaTrash className='' size={26}></FaTrash>
+                        </button>
+                      )}
                     </th>
                   </tr>
                 ))}

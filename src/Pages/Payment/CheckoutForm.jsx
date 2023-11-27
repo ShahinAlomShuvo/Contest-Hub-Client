@@ -89,6 +89,9 @@ const CheckoutForm = () => {
             text: "Registration Successful!",
             icon: "success",
           });
+
+          const { data } = await axiosSecure.patch(`/contest/${id}`);
+          console.log("updated participate:", data);
         }
 
         console.log(res);

@@ -21,7 +21,6 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("/data.json"),
       },
       {
         path: "/allContest",
@@ -29,7 +28,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/allContest/:id",
-        element: <ContestDetails></ContestDetails>,
+        element: (
+          <PrivateRoute>
+            <ContestDetails></ContestDetails>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/contest/${params.id}`),
       },
@@ -43,7 +46,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/payment/:id",
-        element: <Payment></Payment>,
+        element: (
+          <PrivateRoute>
+            <Payment></Payment>
+          </PrivateRoute>
+        ),
       },
     ],
   },
