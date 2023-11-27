@@ -80,7 +80,7 @@ const ManageUsers = () => {
                         </button>
                         <button
                           onClick={() =>
-                            handleRole(`/users/${user.email}/editor`)
+                            handleRole(`/users/${user.email}/creator`)
                           }
                           className='btn btn-primary'
                         >

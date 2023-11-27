@@ -13,6 +13,7 @@ import Payment from "../Pages/Payment/Payment";
 import MyCreateContest from "../Pages/CreatorDashboard/MyCreateContest";
 import UpdateContest from "../Pages/CreatorDashboard/updateContest";
 import ManageUsers from "../Pages/AdminDashboard/ManageUsers";
+import ManageContest from "../Pages/AdminDashboard/ManageContest";
 
 const router = createBrowserRouter([
   {
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/manageUsers",
         element: <ManageUsers></ManageUsers>,
+      },
+      {
+        path: "/dashboard/manageContest",
+        element: <ManageContest></ManageContest>,
       },
       // creator route
       {

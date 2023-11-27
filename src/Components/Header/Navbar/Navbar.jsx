@@ -2,9 +2,12 @@ import { Link, NavLink } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../../../Hook/useAuth";
 import { FaAward } from "react-icons/fa";
+import useUser from "../../../Hook/useUser";
 
 const Navbar = () => {
   const { user, logOutUser } = useAuth();
+  const [users] = useUser();
+  const role = users?.role;
 
   const logOut = async () => {
     try {
@@ -88,7 +91,15 @@ const Navbar = () => {
                 {user && user.displayName}
               </li>
               <li className='bg-base-200 rounded-md text-gray-950'>
-                <Link to={"/dashboard"}>Dashboard</Link>
+                {role === "admin" && (
+                  <Link to={"/dashboard/manageUsers"}>Dashboard</Link>
+                )}
+                {role === "creator" && (
+                  <Link to={"/dashboard/myCreatedContest"}>Dashboard</Link>
+                )}
+                {role === "user" && (
+                  <Link to={"/dashboard/userProfile"}>Dashboard</Link>
+                )}
               </li>
 
               <li className='btn btn-sm' onClick={logOut}>

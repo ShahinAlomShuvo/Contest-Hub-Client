@@ -45,7 +45,7 @@ const AddContest = () => {
       reset();
       Swal.fire({
         title: "Good job!",
-        text: "You clicked the button!",
+        text: "You Added a Contest",
         icon: "success",
       });
     }

@@ -60,7 +60,7 @@ const UpdateContest = () => {
       });
     }
     console.log(res); */
-    console.log(contest);
+    console.log(data);
   };
 
   return (
