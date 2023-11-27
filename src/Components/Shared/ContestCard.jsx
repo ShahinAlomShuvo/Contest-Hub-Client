@@ -21,7 +21,7 @@ const ContestCard = ({ items }) => {
         <p className='font-light text-neutral-500'>{desc}......</p>
         <Link to={`/allContest/${_id}`}>
           <button
-            className='middle none center rounded-lg bg-[#4B4436] py-3.5 px-7 font-sans text-xs font-bold  text-white shadow-md shadow-stone-500/20 transition-all hover:shadow-lg hover:shadow-stone-500/40  active:opacity-[0.45] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none w-full capitalize'
+            className='middle none center rounded-lg bg-[#4B4436] py-3.5 px-7 font-sans text-xs font-bold  text-white shadow-md shadow-stone-500/20 transition-all hover:shadow-lg hover:shadow-stone-500/40  active:opacity-[0.45] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none w-full capitalize mt-6'
             data-ripple-light='true'
           >
             Contest Details

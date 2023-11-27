@@ -10,7 +10,6 @@ const ContestWinner = () => {
       .then((res) => res.json())
       .then((data) => setWinner(data));
   }, []);
-  console.log(winner);
 
   return (
     <div className='bg-[#E2EAEE] pt-10 pb-20'>

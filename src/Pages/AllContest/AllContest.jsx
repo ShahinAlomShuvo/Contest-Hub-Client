@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import useContest from "../../Hook/useContest";
@@ -7,7 +6,6 @@ import ContestTab from "./ContestTab";
 
 const AllContest = () => {
   const [contest, isPending] = useContest();
-  console.log(contest);
   const tags = [
     "all",
     "gamingContest",
@@ -15,7 +13,7 @@ const AllContest = () => {
     "medicalContest",
     "businessContest",
   ];
-  const { tag } = useParams();
+
   const initialIndex = tags.indexOf("all");
   const [tabIndex, setTabIndex] = useState(initialIndex);
 

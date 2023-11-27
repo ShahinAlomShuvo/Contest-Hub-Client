@@ -1,9 +1,19 @@
+import { useQuery } from "@tanstack/react-query";
 import ContestCard from "../../Components/Shared/ContestCard";
 import SectionHeader from "../../Components/Shared/SectionHeader";
-import useContest from "../../Hook/useContest";
+import useAxiosPublic from "../../Hook/useAxiosPublic";
 
 const PopularContest = () => {
-  const [contest, isPending] = useContest();
+  const axiosPublic = useAxiosPublic();
+
+  const { isPending, data: popularContest = [] } = useQuery({
+    queryKey: ["popularContest"],
+    queryFn: async () => {
+      const res = await axiosPublic.get("/popularContest");
+      return res.data;
+    },
+  });
+
   return (
     <>
       <div className='bg-base-300 py-10'>
@@ -14,7 +24,7 @@ const PopularContest = () => {
         the best, and make your mark in these thrilling arenas of excellence.`}
         ></SectionHeader>
         <div className='grid grid-cols-1 md:grid-cols-3  container mx-auto gap-10'>
-          {contest?.map((items) => (
+          {popularContest?.map((items) => (
             <ContestCard
               key={items._id}
               items={items}

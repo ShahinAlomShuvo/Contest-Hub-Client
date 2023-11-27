@@ -10,9 +10,11 @@ import {
 import { NavLink, Outlet } from "react-router-dom";
 import { GiLaurelsTrophy } from "react-icons/gi";
 import { CgProfile } from "react-icons/cg";
+import useUser from "../Hook/useUser";
 
 const DashboardLayout = () => {
-  const role = "creator";
+  const [users] = useUser();
+  const role = users.role;
 
   return (
     <div className='grid grid-cols-4 min-h-screen  text-white'>

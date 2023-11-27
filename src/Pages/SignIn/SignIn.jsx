@@ -17,6 +17,8 @@ const SignIn = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
+  const axiosPublic = useAxiosPublic();
+
   //   Social SignIn
   const socialSignIn = async (socialPlatform) => {
     try {
@@ -26,7 +28,7 @@ const SignIn = () => {
         email: res.user.email,
         role: "user",
       };
-      const response = await useAxiosPublic.post("/users", userInfo);
+      const response = await axiosPublic.post("/users", userInfo);
       if (response.status === 200) {
         Swal.fire({
           title: "Congratulation!",

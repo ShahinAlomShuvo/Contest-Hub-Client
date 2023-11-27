@@ -2,7 +2,10 @@ import { useForm } from "react-hook-form";
 import { imgUpload } from "../../Utility/utility";
 import useAxiosSecure from "../../Hook/useAxiosSecure";
 import Swal from "sweetalert2";
+import useAuth from "../../Hook/useAuth";
 const AddContest = () => {
+  const { user } = useAuth();
+
   const {
     register,
     handleSubmit,
@@ -30,6 +33,7 @@ const AddContest = () => {
       image,
       banner,
       entryFee,
+      creatorEmail: user.email,
       prizeMoney,
       attempt_count: 0,
       status: "pending",

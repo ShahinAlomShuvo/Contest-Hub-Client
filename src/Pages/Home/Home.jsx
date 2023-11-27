@@ -1,22 +1,25 @@
 import { Helmet } from "react-helmet";
-import { useLoaderData } from "react-router-dom";
 import PopularContest from "./PopularContest";
 import ContestWinner from "./ContestWinner";
 import BestContestCreator from "./BestContestCreator";
-import Footer from "../../Components/Footer/Footer";
+import Hero from "../../Components/Header/Hero/Hero";
+import { useState } from "react";
+import SearchResult from "./SearchResult";
 
 const Home = () => {
-  const data = useLoaderData();
+  const [searchValue, setSearchValue] = useState("");
+  console.log(searchValue);
 
   return (
     <div>
       <Helmet>
         <title>ContestHub | Home</title>
       </Helmet>
-      <PopularContest data={data}></PopularContest>
+      <Hero setSearchValue={setSearchValue}></Hero>
+      {searchValue && <SearchResult value={searchValue}></SearchResult>}
+      <PopularContest></PopularContest>
       <ContestWinner></ContestWinner>
       <BestContestCreator></BestContestCreator>
-      <Footer></Footer>
     </div>
   );
 };

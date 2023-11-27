@@ -8,6 +8,9 @@ import DashboardLayout from "../Layout/DashboardLayout";
 import PrivateRoute from "./PrivateRoute";
 import AddContest from "../Pages/CreatorDashboard/AddContest";
 import AllContest from "../Pages/AllContest/AllContest";
+import ContestDetails from "../Pages/AllContest/ContestDetails";
+import Payment from "../Pages/Payment/Payment";
+import MyCreateContest from "../Pages/CreatorDashboard/MyCreateContest";
 
 const router = createBrowserRouter([
   {
@@ -26,7 +29,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/allContest/:id",
-        element: <AllContest></AllContest>,
+        element: <ContestDetails></ContestDetails>,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/contest/${params.id}`),
       },
@@ -38,6 +41,10 @@ const router = createBrowserRouter([
         path: "/signUp",
         element: <SignUp></SignUp>,
       },
+      {
+        path: "/payment/:id",
+        element: <Payment></Payment>,
+      },
     ],
   },
   {
@@ -47,10 +54,15 @@ const router = createBrowserRouter([
         <DashboardLayout></DashboardLayout>
       </PrivateRoute>
     ),
+    // creator route
     children: [
       {
-        path: "/dashboard/creator/addContest",
+        path: "/dashboard/addContest",
         element: <AddContest></AddContest>,
+      },
+      {
+        path: "/dashboard/myCreatedContest",
+        element: <MyCreateContest></MyCreateContest>,
       },
     ],
   },
