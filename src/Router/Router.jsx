@@ -17,7 +17,6 @@ import ManageContest from "../Pages/AdminDashboard/ManageContest";
 import ParticipateContest from "../Pages/UserDashboard/ParticipateContest";
 import UserProfile from "../Pages/UserDashboard/UserProfile";
 import WinningContest from "../Pages/UserDashboard/WinningContest";
-import Drawer from "../Components/Drawer/Drawer";
 
 const router = createBrowserRouter([
   {
@@ -60,10 +59,6 @@ const router = createBrowserRouter([
         ),
       },
     ],
-  },
-  {
-    path: "/drawer",
-    element: <Drawer></Drawer>,
   },
   {
     path: "/dashboard",
