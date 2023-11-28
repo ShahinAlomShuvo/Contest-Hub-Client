@@ -15,6 +15,7 @@ const Home = () => {
       <Helmet>
         <title>ContestHub | Home</title>
       </Helmet>
+
       <Hero setSearchValue={setSearchValue}></Hero>
       {searchValue && <SearchResult value={searchValue}></SearchResult>}
       <PopularContest></PopularContest>

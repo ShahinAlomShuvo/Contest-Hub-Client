@@ -3,13 +3,15 @@ import { useEffect } from "react";
 import { useState } from "react";
 import useAuth from "../../Hook/useAuth";
 import useAxiosSecure from "../../Hook/useAxiosSecure";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const CheckoutForm = () => {
   const [error, setError] = useState("");
   const [transitionId, setTransitionId] = useState("");
   const [clientInfo, setClientInfo] = useState();
+
+  const navigate = useNavigate();
 
   const axiosSecure = useAxiosSecure();
   const { id } = useParams();
@@ -84,6 +86,7 @@ const CheckoutForm = () => {
 
         const res = await axiosSecure.post("/payments", payment);
         if (res.status === 200) {
+          navigate("/dashboard/participatedContest");
           Swal.fire({
             title: "Congratulation",
             text: "Registration Successful!",
@@ -100,12 +103,12 @@ const CheckoutForm = () => {
   };
 
   return (
-    <div className='space-y-20'>
+    <div className='space-y-16 border-2 mx-auto w-[400px] md:w-[600px]  lg:w-[800px]   p-10 shadow-2xl bg-white rounded-lg my-20'>
       <div>
-        <h2 className='text-center text-3xl font-semibold'>
+        <h2 className='text-center text-2xl md:text-3xl font-semibold'>
           Payment for:{clientInfo?.name} Contest
         </h2>
-        <p className='text-center mt-4 text-xl font-semibold'>
+        <p className='text-center mt-4 md:text-xl font-semibold'>
           Payment Amount:${clientInfo?.entryFee}
         </p>
       </div>

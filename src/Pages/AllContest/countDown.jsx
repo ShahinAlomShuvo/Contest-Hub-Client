@@ -20,6 +20,7 @@ const CountDown = ({ date }) => {
       hours,
       minutes,
       seconds,
+      isActive: difference > 0,
     };
   }
 
@@ -28,39 +29,66 @@ const CountDown = ({ date }) => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
 
-    // Clear the interval when the component is unmounted
     return () => clearInterval(timerInterval);
   }, []);
 
   return (
     <div>
-      <h2 className='text-2xl font-semibold'>Registration Left</h2>
-      <div className='flex justify-center gap-6 mt-10'>
-        <p>
-          <span className='bg-fuchsia-600 p-3 rounded mr-2 text-white'>
-            {timeLeft.days}
-          </span>
-          days,
-        </p>
-        <p>
-          <span className='bg-fuchsia-600 p-3 rounded mr-2 text-white'>
-            {timeLeft.hours}
-          </span>
-          hours,{" "}
-        </p>
-        <p>
-          <span className='bg-fuchsia-600 p-3 rounded mr-2 text-white'>
-            {timeLeft.minutes}
-          </span>
-          minutes,
-        </p>
-        <p>
-          <span className='bg-fuchsia-600 p-3 rounded mr-2 text-white'>
-            {timeLeft.seconds}
-          </span>
-          seconds
-        </p>
-      </div>
+      {timeLeft.isActive ? (
+        <div className='flex  justify-center gap-6 mt-10'>
+          <div>
+            <div className='bg-fuchsia-600 p-3 rounded  text-white'>
+              {timeLeft.days}
+            </div>
+
+            <div className='pt-2 text-xl'>days,</div>
+          </div>
+          <div>
+            <div className='bg-fuchsia-600 p-3 rounded  text-white'>
+              {timeLeft.hours}
+            </div>
+
+            <div className='pt-2 text-xl'>hours, </div>
+          </div>
+          <div>
+            <div className='bg-fuchsia-600 p-3 rounded  text-white'>
+              {timeLeft.minutes}
+            </div>
+
+            <div className='pt-2 text-xl'>minutes,</div>
+          </div>
+          <div>
+            <div className='bg-fuchsia-600 p-3 rounded  text-white'>
+              {timeLeft.seconds}
+            </div>
+
+            <div className='pt-2 text-xl'>seconds</div>
+          </div>
+        </div>
+      ) : (
+        <div className='flex  justify-center gap-6 mt-10'>
+          <div>
+            <div className='bg-fuchsia-600 p-3 rounded  text-white'>0</div>
+
+            <div className='pt-2 text-xl'>days,</div>
+          </div>
+          <div>
+            <div className='bg-fuchsia-600 p-3 rounded  text-white'>0</div>
+
+            <div className='pt-2 text-xl'>hours, </div>
+          </div>
+          <div>
+            <div className='bg-fuchsia-600 p-3 rounded  text-white'>0</div>
+
+            <div className='pt-2 text-xl'>minutes,</div>
+          </div>
+          <div>
+            <div className='bg-fuchsia-600 p-3 rounded  text-white'>0</div>
+
+            <div className='pt-2 text-xl'>seconds</div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

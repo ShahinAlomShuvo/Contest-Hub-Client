@@ -14,6 +14,10 @@ import MyCreateContest from "../Pages/CreatorDashboard/MyCreateContest";
 import UpdateContest from "../Pages/CreatorDashboard/updateContest";
 import ManageUsers from "../Pages/AdminDashboard/ManageUsers";
 import ManageContest from "../Pages/AdminDashboard/ManageContest";
+import ParticipateContest from "../Pages/UserDashboard/ParticipateContest";
+import UserProfile from "../Pages/UserDashboard/UserProfile";
+import WinningContest from "../Pages/UserDashboard/WinningContest";
+import Drawer from "../Components/Drawer/Drawer";
 
 const router = createBrowserRouter([
   {
@@ -58,6 +62,10 @@ const router = createBrowserRouter([
     ],
   },
   {
+    path: "/drawer",
+    element: <Drawer></Drawer>,
+  },
+  {
     path: "/dashboard",
     element: (
       <PrivateRoute>
@@ -86,6 +94,19 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/updateContest/:id",
         element: <UpdateContest></UpdateContest>,
+      },
+      // user route
+      {
+        path: "/dashboard/participatedContest",
+        element: <ParticipateContest></ParticipateContest>,
+      },
+      {
+        path: "/dashboard/winningContest",
+        element: <WinningContest></WinningContest>,
+      },
+      {
+        path: "/dashboard/userProfile",
+        element: <UserProfile></UserProfile>,
       },
     ],
   },

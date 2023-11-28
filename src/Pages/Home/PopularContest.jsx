@@ -23,7 +23,7 @@ const PopularContest = () => {
         skills, and celebrate achievement. Unleash your potential, compete with
         the best, and make your mark in these thrilling arenas of excellence.`}
         ></SectionHeader>
-        <div className='grid grid-cols-1 md:grid-cols-3  container mx-auto gap-10'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  container mx-auto gap-10 px-4 lg:px-0'>
           {popularContest?.map((items) => (
             <ContestCard
               key={items._id}

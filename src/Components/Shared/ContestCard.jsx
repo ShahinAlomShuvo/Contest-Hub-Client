@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const ContestCard = ({ items }) => {
   const { description, attempt_count, banner, image, name, _id } = items;
-  const desc = description?.slice(0, 160);
+  const desc = description?.slice(0, 120);
   return (
     <div className='hover:shadow-2xl  transition   bg-white rounded-md'>
       <div className='w-full h-[180px] relative   mb-20 '>

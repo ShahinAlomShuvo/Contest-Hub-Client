@@ -44,11 +44,11 @@ const ContestDetails = () => {
   return (
     <div className='pb-10'>
       <img className='w-full h-96' src={banner} alt='' />
-      <div className='container mx-auto px-4 lg:px-0'>
-        <img className=' w-40 h-40 -mt-20' src={image} alt='' />
+      <div className='container mx-auto  px-4 lg:px-0'>
+        <img className='rounded w-40 h-40 -mt-20' src={image} alt='' />
       </div>
-      <div className='container mx-auto'>
-        <div className='grid  gap-5 md:grid-cols-3  pt-16 px-4 lg:px-0'>
+      <div className=''>
+        <div className='grid  gap-5 md:grid-cols-2 lg:grid-cols-3  pt-16 container mx-auto px-4 lg:0'>
           <div className=' space-y-2'>
             <p>
               <span className='text-xl mr-2 font-light'>Contest Name:</span>
@@ -85,13 +85,13 @@ const ContestDetails = () => {
               </button>
             )}
           </div>
-          <div className='col-span-2'>
+          <div className='lg:col-span-2'>
             <Tabs
               className='space-y-10'
               selectedIndex={tabIndex}
               onSelect={(index) => setTabIndex(index)}
             >
-              <TabList className='bg-base-300 py-2 text-center'>
+              <TabList className='bg-base-300 rounded-md py-2 text-center'>
                 <Tab>Description</Tab>
                 <Tab>Criteria</Tab>
                 <Tab>DeadLine</Tab>

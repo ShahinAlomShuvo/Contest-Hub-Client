@@ -15,7 +15,6 @@ import useUser from "../Hook/useUser";
 const DashboardLayout = () => {
   const [users] = useUser();
   const role = users.role;
-  console.log(role);
 
   return (
     <div className='grid grid-cols-4 min-h-screen  '>
@@ -99,7 +98,7 @@ const DashboardLayout = () => {
               </li>
               <li>
                 <NavLink
-                  to={"/dashboard/userProfile"}
+                  to={"/dashboard/contestSubmission"}
                   className='flex gap-2 items-center'
                 >
                   <CgProfile size={26} />
