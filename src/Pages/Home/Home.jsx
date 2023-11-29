@@ -20,7 +20,7 @@ const Home = () => {
       {searchValue && <SearchResult value={searchValue}></SearchResult>}
       <PopularContest></PopularContest>
       <ContestWinner></ContestWinner>
-      <BestContestCreator></BestContestCreator>
+      {/* <BestContestCreator></BestContestCreator> */}
     </div>
   );
 };

@@ -1,10 +1,19 @@
+import Aos from "aos";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const ContestCard = ({ items }) => {
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+  }, []);
+
   const { description, attempt_count, banner, image, name, _id } = items;
   const desc = description?.slice(0, 120);
   return (
-    <div className='hover:shadow-2xl  transition   bg-white rounded-md'>
+    <div
+      data-aos='zoom-in'
+      className='hover:shadow-2xl  transition   bg-white rounded-md'
+    >
       <div className='w-full h-[180px] relative   mb-20 '>
         <img className='h-full w-full    ' src={banner} />
         <img

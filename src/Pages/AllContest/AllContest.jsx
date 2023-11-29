@@ -3,9 +3,12 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import useContest from "../../Hook/useContest";
 import ContestTab from "./ContestTab";
+import useAxiosPublic from "../../Hook/useAxiosPublic";
+import { useQuery } from "@tanstack/react-query";
 
 const AllContest = () => {
   const [contest, isPending] = useContest();
+
   const tags = [
     "all",
     "gamingContest",

@@ -34,8 +34,6 @@ const Drawer = () => {
             className='drawer-overlay'
           ></label>
           <ul className='menu p-4 w-80 min-h-full bg-base-200 text-base-content'>
-            {/* Sidebar content here */}
-
             {/* admin routes  */}
             {role === "admin" && (
               <>
@@ -133,15 +131,9 @@ const Drawer = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to={"/menu"} className='flex gap-2 items-center'>
+              <NavLink to={"/allContest"} className='flex gap-2 items-center'>
                 <FaSearch size={26} />
-                Menu
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to={"/contact"} className='flex gap-2 items-center'>
-                <FaEnvelope size={26} />
-                Contact
+                All Contest
               </NavLink>
             </li>
           </ul>

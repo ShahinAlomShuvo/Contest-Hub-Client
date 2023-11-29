@@ -4,9 +4,11 @@ import useAxiosPublic from "../../Hook/useAxiosPublic";
 import useAuth from "../../Hook/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import { FadeLoader } from "react-spinners";
+import useAxiosSecure from "../../Hook/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const MyCreateContest = () => {
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
   const { user, loading } = useAuth();
 
   const {
@@ -17,7 +19,7 @@ const MyCreateContest = () => {
     queryKey: [user?.email, "creatorContest"],
     enabled: !loading,
     queryFn: async () => {
-      const res = await axiosPublic.get(
+      const res = await axiosSecure.get(
         encodeURI(`/creatorContest/${user?.email}`)
       );
 
@@ -26,8 +28,31 @@ const MyCreateContest = () => {
   });
 
   const handleDelete = (contest) => {
-    console.log(contest._id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.delete(`/contest/${contest._id}`).then((res) => {
+          console.log(res);
+          if (res.status === 200) {
+            refetch();
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your Contest has been deleted.",
+              icon: "success",
+            });
+          }
+        });
+      }
+    });
   };
+
   return (
     <>
       {isPending ? (
@@ -43,13 +68,14 @@ const MyCreateContest = () => {
             <table className='table'>
               {/* head */}
               <thead>
-                <tr className='text-2xl text-white  bg-[#4B4436] bg-opacity-70  h-20 '>
+                <tr className='text-xl text-white  bg-[#4B4436] bg-opacity-70  h-20 '>
                   <th>#</th>
                   <th>Image</th>
                   <th>Name</th>
                   <th>Status</th>
                   <th>Update</th>
                   <th>Delete</th>
+                  <th>Submission</th>
                 </tr>
               </thead>
               <tbody>
@@ -63,7 +89,6 @@ const MyCreateContest = () => {
                             <img src={contest.image} />
                           </div>
                         </div>
-                        <div></div>
                       </div>
                     </td>
                     <td className='font-semibold text-gray-700'>
@@ -72,7 +97,7 @@ const MyCreateContest = () => {
                     <td className='font-semibold text-gray-700'>
                       {contest.status}
                     </td>
-                    <th>
+                    <td>
                       {contest.status === "pending" ? (
                         <Link to={`/dashboard/updateContest/${contest._id}`}>
                           <button className='btn btn-ghost bg-slate-700'>
@@ -84,8 +109,8 @@ const MyCreateContest = () => {
                           <FaEdit className='' size={26}></FaEdit>
                         </button>
                       )}
-                    </th>
-                    <th>
+                    </td>
+                    <td>
                       {contest.status === "pending" ? (
                         <button
                           onClick={() => handleDelete(contest)}
@@ -101,7 +126,18 @@ const MyCreateContest = () => {
                           <FaTrash className='' size={26}></FaTrash>
                         </button>
                       )}
-                    </th>
+                    </td>
+                    <td className='font-semibold text-gray-700'>
+                      <Link to={`/dashboard/seeSubmission/${contest._id}`}>
+                        <button
+                          className={`btn btn-sm btn-info ${
+                            contest.status === "pending" && "btn-disabled"
+                          }`}
+                        >
+                          See Submission
+                        </button>
+                      </Link>
+                    </td>
                   </tr>
                 ))}
               </tbody>
