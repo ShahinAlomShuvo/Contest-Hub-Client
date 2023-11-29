@@ -18,10 +18,8 @@ const PopularContest = () => {
     <>
       <div className='bg-base-300 py-10'>
         <SectionHeader
-          title={"Popular Competitions"}
-          subtitle={` Explore the most sought-after contests that captivate minds, challenge
-        skills, and celebrate achievement. Unleash your potential, compete with
-        the best, and make your mark in these thrilling arenas of excellence.`}
+          title={"Popular Contests"}
+          subtitle={`Trending Contests. Dive in now and show your skills in the most popular competitions. Your spotlight moment awaits!`}
         ></SectionHeader>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  container mx-auto gap-10 px-4 lg:px-0'>
           {popularContest?.map((items) => (

@@ -1,6 +1,5 @@
 import { FaEdit, FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import useAxiosPublic from "../../Hook/useAxiosPublic";
 import useAuth from "../../Hook/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import { FadeLoader } from "react-spinners";

@@ -1,103 +1,157 @@
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-/* import clientOne from "../../assets/Images/1.jpg";
-import clientTwo from "../../assets/Images/2.jpg";
-import clientThree from "../../assets/Images/3.jpg";
-import clientBg from "../../assets/Images/gucciBrand.webp"; */
-
-const ClientReviews = () => {
-  var settings = {
-    dots: true,
-    infinite: true,
-    speed: 1000,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    vertical: true,
-    verticalSwiping: true,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
+const BestContestCreator = () => {
   return (
-    <div className='text-center'>
-      <div
-        className='hero h-[70vh]'
-        style={{
-          backgroundImage: `url(${clientBg})`,
-        }}
-      >
-        <div className='hero-overlay bg-[#554C86] bg-opacity-80 overflow-hidden'>
-          <h2 className='text-3xl text-white font-bold text-center pt-16 pb-10'>
-            Clients About Us
+    <section className='py-10 bg-gray-50 sm:py-16 lg:py-24'>
+      <div className='px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl'>
+        <div className='max-w-2xl mx-auto text-center'>
+          <h2 className='text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl'>
+            Meet the brains
           </h2>
-          <Slider {...settings}>
-            <div className='text-white'>
-              <img
-                className='w-28 h-28 rounded-full mx-auto'
-                src={clientOne}
-                alt='client'
-              />
-              <h4 className='text-3xl  font-semibold py-3'>Jenna Anniston</h4>
-              <p className='w-[380px] md:w-[450px] mx-auto'>
-                The quality of ShopNThread products never ceases to amaze me. A
-                perfect blend of style and durability!
-              </p>
-            </div>
-            <div className='text-white'>
-              <img
-                className='w-28 h-28 rounded-full mx-auto'
-                src={clientTwo}
-                alt='client'
-              />
-              <h4 className='text-3xl  font-semibold py-3'>Mary Green </h4>
-              <p className='w-[380px] md:w-[450px] mx-auto'>
-                I'm hooked on ShopNThread their products are worth every penny.
-                Quality that speaks for itself.
-              </p>
-            </div>
-            <div className='text-white'>
-              <img
-                className='w-28 h-28 rounded-full mx-auto'
-                src={clientThree}
-                alt='client'
-              />
-              <h4 className='text-3xl  font-semibold py-3'>Lucy Banks</h4>
-              <p className='w-[380px] md:w-[450px] mx-auto'>
-                Kudos to ShopNThread for their inventive designs. Practicality
-                meets elegance, a winning combination.
-              </p>
-            </div>
-          </Slider>
+          <p className='max-w-md mx-auto mt-4 text-base leading-relaxed text-gray-600'>
+            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
+            sint. Velit officia consequat duis.
+          </p>
+        </div>
+
+        <div className='grid grid-cols-2 mt-8 text-center sm:mt-16 lg:mt-20 sm:grid-cols-4 gap-y-8 lg:grid-cols-9 gap-x-0'>
+          <div>
+            <img
+              className='object-cover mx-auto rounded-lg w-28 h-28'
+              src='https://cdn.rareblocks.xyz/collection/celebration/images/team/3/team-avatar-1.jpg'
+              alt=''
+            />
+            <p className='mt-8 text-lg font-semibold leading-tight text-black'>
+              Jenny Wilson
+            </p>
+            <p className='mt-1 text-base leading-tight text-gray-600'>
+              Founder
+            </p>
+          </div>
+
+          <div className='hidden lg:block'></div>
+
+          <div>
+            <img
+              className='object-cover mx-auto rounded-lg w-28 h-28'
+              src='https://cdn.rareblocks.xyz/collection/celebration/images/team/3/team-avatar-2.jpg'
+              alt=''
+            />
+            <p className='mt-8 text-lg font-semibold leading-tight text-black'>
+              Darrell Steward
+            </p>
+            <p className='mt-1 text-base leading-tight text-gray-600'>CTO</p>
+          </div>
+
+          <div className='hidden lg:block'></div>
+
+          <div>
+            <img
+              className='object-cover mx-auto rounded-lg w-28 h-28'
+              src='https://cdn.rareblocks.xyz/collection/celebration/images/team/3/team-avatar-3.jpg'
+              alt=''
+            />
+            <p className='mt-8 text-lg font-semibold leading-tight text-black'>
+              Bessie Cooper
+            </p>
+            <p className='mt-1 text-base leading-tight text-gray-600'>CMO</p>
+          </div>
+
+          <div className='hidden lg:block'></div>
+
+          <div>
+            <img
+              className='object-cover mx-auto rounded-lg w-28 h-28'
+              src='https://cdn.rareblocks.xyz/collection/celebration/images/team/3/team-avatar-4.jpg'
+              alt=''
+            />
+            <p className='mt-8 text-lg font-semibold leading-tight text-black'>
+              Arlene McCoy
+            </p>
+            <p className='mt-1 text-base leading-tight text-gray-600'>
+              Senior Developer
+            </p>
+          </div>
+
+          <div className='hidden lg:block'></div>
+
+          <div>
+            <img
+              className='object-cover mx-auto rounded-lg w-28 h-28'
+              src='https://cdn.rareblocks.xyz/collection/celebration/images/team/3/team-avatar-5.jpg'
+              alt=''
+            />
+            <p className='mt-8 text-lg font-semibold leading-tight text-black'>
+              Brooklyn Simmons
+            </p>
+            <p className='mt-1 text-base leading-tight text-gray-600'>
+              Product Designer
+            </p>
+          </div>
+
+          <div className='hidden lg:block'></div>
+
+          <div>
+            <img
+              className='object-cover mx-auto rounded-lg w-28 h-28'
+              src='https://cdn.rareblocks.xyz/collection/celebration/images/team/3/team-avatar-6.jpg'
+              alt=''
+            />
+            <p className='mt-8 text-lg font-semibold leading-tight text-black'>
+              Jerome Bell
+            </p>
+            <p className='mt-1 text-base leading-tight text-gray-600'>
+              Customer Success
+            </p>
+          </div>
+
+          <div className='hidden lg:block'></div>
+
+          <div>
+            <img
+              className='object-cover mx-auto rounded-lg w-28 h-28'
+              src='https://cdn.rareblocks.xyz/collection/celebration/images/team/3/team-avatar-7.jpg'
+              alt=''
+            />
+            <p className='mt-8 text-lg font-semibold leading-tight text-black'>
+              Dianne Russell
+            </p>
+            <p className='mt-1 text-base leading-tight text-gray-600'>
+              Front-end Developer
+            </p>
+          </div>
+
+          <div className='hidden lg:block'></div>
+
+          <div>
+            <img
+              className='object-cover mx-auto rounded-lg w-28 h-28'
+              src='https://cdn.rareblocks.xyz/collection/celebration/images/team/3/team-avatar-8.jpg'
+              alt=''
+            />
+            <p className='mt-8 text-lg font-semibold leading-tight text-black'>
+              Kristin Watson
+            </p>
+            <p className='mt-1 text-base leading-tight text-gray-600'>H.R</p>
+          </div>
+
+          <div className='hidden lg:block'></div>
+
+          <div>
+            <img
+              className='object-cover mx-auto rounded-lg w-28 h-28'
+              src='https://cdn.rareblocks.xyz/collection/celebration/images/team/3/team-avatar-9.jpg'
+              alt=''
+            />
+            <p className='mt-8 text-lg font-semibold leading-tight text-black'>
+              Eleanor Pena
+            </p>
+            <p className='mt-1 text-base leading-tight text-gray-600'>
+              UI Designer
+            </p>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default ClientReviews;
+export default BestContestCreator;

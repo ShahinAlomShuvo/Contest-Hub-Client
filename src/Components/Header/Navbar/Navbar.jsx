@@ -36,6 +36,12 @@ const Navbar = () => {
       <li className=' font-semibold text-gray-600 lg:text-white'>
         <NavLink to={"/allContest"}>All Contest</NavLink>
       </li>
+      <li className=' font-semibold'>
+        <NavLink to={"/pricing"}>Pricing</NavLink>
+      </li>
+      <li className=' font-semibold'>
+        <NavLink to={"/contact"}>Contact us</NavLink>
+      </li>
     </>
   );
   return (
