@@ -3,6 +3,7 @@ import useAxiosSecure from "../../Hook/useAxiosSecure";
 import { FadeLoader } from "react-spinners";
 import { FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const ManageContest = () => {
   const axiosSecure = useAxiosSecure();
@@ -43,7 +44,7 @@ const ManageContest = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosSecure.delete(`/confirmDelete/${contest._id}`).then((data) => {
+        axiosSecure.delete(`/contest/${contest._id}`).then((data) => {
           if (data.status === 200) {
             refetch();
             Swal.fire({
@@ -59,6 +60,10 @@ const ManageContest = () => {
 
   return (
     <>
+      <Helmet>
+        <title>ContestHub | Mange-Contest</title>
+      </Helmet>
+
       {isPending ? (
         <div className='flex justify-center items-center py-40'>
           <FadeLoader color='#36d7b7' />

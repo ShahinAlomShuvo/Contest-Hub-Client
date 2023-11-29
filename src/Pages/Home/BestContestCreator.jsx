@@ -1,4 +1,14 @@
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 const BestContestCreator = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 4000,
+    });
+  }, []);
+
   return (
     <section className='py-10 bg-gray-50 sm:py-16 lg:py-24'>
       <div className='px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl'>
@@ -13,7 +23,7 @@ const BestContestCreator = () => {
         </div>
 
         <div className='grid grid-cols-2 mt-8 text-center sm:mt-16 lg:mt-20 sm:grid-cols-4 gap-y-8 lg:grid-cols-9 gap-x-0'>
-          <div>
+          <div data-aos='flip-left'>
             <img
               className='object-cover mx-auto rounded-lg w-28 h-28'
               src='https://cdn.rareblocks.xyz/collection/celebration/images/team/3/team-avatar-1.jpg'

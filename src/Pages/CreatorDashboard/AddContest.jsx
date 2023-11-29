@@ -3,6 +3,7 @@ import { imgUpload } from "../../Utility/utility";
 import useAxiosSecure from "../../Hook/useAxiosSecure";
 import Swal from "sweetalert2";
 import useAuth from "../../Hook/useAuth";
+import { Helmet } from "react-helmet";
 const AddContest = () => {
   const { user } = useAuth();
 
@@ -53,6 +54,10 @@ const AddContest = () => {
   };
   return (
     <div>
+      <Helmet>
+        <title>ContestHub | AddContest</title>
+      </Helmet>
+
       <form onSubmit={handleSubmit(SubmitHandler)} className='space-y-8'>
         <div className='grid gap-6 mb-6 md:grid-cols-2'>
           {/* contest name  */}

@@ -5,6 +5,7 @@ import WinnerCard from "./WinnerCard";
 
 const ContestWinner = () => {
   const [winner, setWinner] = useState([]);
+
   useEffect(() => {
     fetch("/winner.json")
       .then((res) => res.json())

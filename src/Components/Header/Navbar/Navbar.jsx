@@ -40,7 +40,7 @@ const Navbar = () => {
         <NavLink to={"/pricing"}>Pricing</NavLink>
       </li>
       <li className=' font-semibold'>
-        <NavLink to={"/contact"}>Contact us</NavLink>
+        <NavLink to={"/process"}>Process</NavLink>
       </li>
     </>
   );

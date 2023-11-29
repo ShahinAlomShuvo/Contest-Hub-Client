@@ -1,15 +1,18 @@
 import { useQuery } from "@tanstack/react-query";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useAxiosSecure from "../../Hook/useAxiosSecure";
 import { useForm } from "react-hook-form";
 import { imgUpload } from "../../Utility/utility";
 import useAuth from "../../Hook/useAuth";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const UpdateContest = () => {
   const { id } = useParams();
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
+
+  const navigate = useNavigate();
 
   const { data: singleContest = [] } = useQuery({
     queryKey: ["singleData", id],
@@ -30,8 +33,8 @@ const UpdateContest = () => {
       entryFee: singleContest.entryFee,
       prizeMoney: singleContest.prizeMoney,
       tags: singleContest.tags,
-      image: singleContest.image,
-      banner: singleContest.banner,
+      image: null,
+      banner: null,
       deadline: singleContest.deadline,
       description: singleContest.description,
       task: singleContest.task,
@@ -48,13 +51,16 @@ const UpdateContest = () => {
     } = data;
 
     // upload img
+    let image, banner;
+    if (data.image) {
+      image = await imgUpload(img[0]);
+    }
+    if (data.banner) {
+      banner = await imgUpload(bannerImg[0]);
+    }
 
-    // const image = await imgUpload(img[0]);
-
-    // const banner = await imgUpload(bannerImg[0]);
-
-    // const entryFee = parseFloat(fee);
-    // const prizeMoney = parseFloat(prize);
+    const entryFee = parseFloat(fee);
+    const prizeMoney = parseFloat(prize);
 
     const updatedContest = {
       image,
@@ -64,21 +70,26 @@ const UpdateContest = () => {
       ...restData,
     };
 
-    /* const res = await axiosSecure.patch("/contest", contest);
+    const res = await axiosSecure.patch(
+      `/contest/update/${id}`,
+      updatedContest
+    );
     if (res.status === 200) {
-      reset();
+      navigate(-1);
       Swal.fire({
-        title: "Good job!",
-        text: "You clicked the button!",
+        title: "Success",
+        text: "You Updated A Contest",
         icon: "success",
       });
     }
-    console.log(res); */
-    console.log(data);
+    console.log(res.data);
   };
 
   return (
-    <div>
+    <>
+      <Helmet>
+        <title>ContestHub | Update-Contest</title>
+      </Helmet>
       <form onSubmit={handleSubmit(SubmitHandler)} className='space-y-8'>
         <div className='grid gap-6 mb-6 md:grid-cols-2'>
           {/* contest name  */}
@@ -245,7 +256,7 @@ const UpdateContest = () => {
           </button>
         </div>
       </form>
-    </div>
+    </>
   );
 };
 

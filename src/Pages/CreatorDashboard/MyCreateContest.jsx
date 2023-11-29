@@ -5,6 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { FadeLoader } from "react-spinners";
 import useAxiosSecure from "../../Hook/useAxiosSecure";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const MyCreateContest = () => {
   const axiosSecure = useAxiosSecure();
@@ -54,6 +55,10 @@ const MyCreateContest = () => {
 
   return (
     <>
+      <Helmet>
+        <title>ContestHub | My Contest</title>
+      </Helmet>
+
       {isPending ? (
         <div className='flex justify-center items-center py-40'>
           <FadeLoader color='#36d7b7' />

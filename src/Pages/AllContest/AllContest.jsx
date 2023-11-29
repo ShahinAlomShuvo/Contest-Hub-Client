@@ -3,8 +3,7 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import useContest from "../../Hook/useContest";
 import ContestTab from "./ContestTab";
-import useAxiosPublic from "../../Hook/useAxiosPublic";
-import { useQuery } from "@tanstack/react-query";
+import { Helmet } from "react-helmet";
 
 const AllContest = () => {
   const [contest, isPending] = useContest();
@@ -34,52 +33,61 @@ const AllContest = () => {
   );
 
   return (
-    <div className='bg-base-300 min-h-screen '>
-      <div className='py-10 container mx-auto'>
-        <div className=' py-5 text-center '>
-          <Tabs
-            selectedIndex={tabIndex}
-            onSelect={(index) => setTabIndex(index)}
-          >
-            <TabList className=' bg-[#4B4436] bg-opacity-40 py-6 rounded-md mx-4 lg:mx-0'>
-              <Tab>All</Tab>
-              <Tab>Gaming Contest</Tab>
-              <Tab>Article Writing</Tab>
-              <Tab>Medical Contest</Tab>
-              <Tab>Business Contest</Tab>
-            </TabList>
+    <>
+      <Helmet>
+        <title>ContestHub | All Contest</title>
+      </Helmet>
 
-            <TabPanel>
-              <ContestTab isPending={isPending} contest={contest}></ContestTab>
-            </TabPanel>
-            <TabPanel>
-              <ContestTab
-                isPending={isPending}
-                contest={gamingContest}
-              ></ContestTab>
-            </TabPanel>
-            <TabPanel>
-              <ContestTab
-                isPending={isPending}
-                contest={articleWriting}
-              ></ContestTab>
-            </TabPanel>
-            <TabPanel>
-              <ContestTab
-                isPending={isPending}
-                contest={medicalContest}
-              ></ContestTab>
-            </TabPanel>
-            <TabPanel>
-              <ContestTab
-                isPending={isPending}
-                contest={businessContest}
-              ></ContestTab>
-            </TabPanel>
-          </Tabs>
+      <div className='bg-base-300 min-h-screen '>
+        <div className='py-10 container mx-auto'>
+          <div className=' py-5 text-center '>
+            <Tabs
+              selectedIndex={tabIndex}
+              onSelect={(index) => setTabIndex(index)}
+            >
+              <TabList className=' bg-[#4B4436] bg-opacity-40 py-6 rounded-md mx-4 lg:mx-0'>
+                <Tab>All</Tab>
+                <Tab>Gaming Contest</Tab>
+                <Tab>Article Writing</Tab>
+                <Tab>Medical Contest</Tab>
+                <Tab>Business Contest</Tab>
+              </TabList>
+
+              <TabPanel>
+                <ContestTab
+                  isPending={isPending}
+                  contest={contest}
+                ></ContestTab>
+              </TabPanel>
+              <TabPanel>
+                <ContestTab
+                  isPending={isPending}
+                  contest={gamingContest}
+                ></ContestTab>
+              </TabPanel>
+              <TabPanel>
+                <ContestTab
+                  isPending={isPending}
+                  contest={articleWriting}
+                ></ContestTab>
+              </TabPanel>
+              <TabPanel>
+                <ContestTab
+                  isPending={isPending}
+                  contest={medicalContest}
+                ></ContestTab>
+              </TabPanel>
+              <TabPanel>
+                <ContestTab
+                  isPending={isPending}
+                  contest={businessContest}
+                ></ContestTab>
+              </TabPanel>
+            </Tabs>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

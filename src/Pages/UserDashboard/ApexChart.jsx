@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import ReactApexChart from "react-apexcharts";
 
-const ApexChart = ({ attemptPercentage, winningPercentage }) => {
+const ApexChart = ({ loses, win }) => {
   const [chartData, setChartData] = useState({
-    series: [attemptPercentage, winningPercentage],
+    series: [loses, win],
     options: {
       chart: {
         width: 380,
         type: "pie",
       },
-      labels: ["Attempt", "Winning"],
+      labels: ["Failed", "Winning"],
       responsive: [
         {
           breakpoint: 480,
@@ -29,9 +29,9 @@ const ApexChart = ({ attemptPercentage, winningPercentage }) => {
   useEffect(() => {
     setChartData({
       ...chartData,
-      series: [attemptPercentage, winningPercentage],
+      series: [loses, win],
     });
-  }, [attemptPercentage, winningPercentage]);
+  }, [loses, win]);
 
   return (
     <div id='chart'>

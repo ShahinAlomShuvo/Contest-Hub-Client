@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../Hook/useAxiosSecure";
 import { FadeLoader } from "react-spinners";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const ManageUsers = () => {
   const axiosSecure = useAxiosSecure();
@@ -29,9 +30,13 @@ const ManageUsers = () => {
       });
     }
   };
-  console.log(manageUsers);
+
   return (
     <>
+      <Helmet>
+        <title>ContestHub | Manage-User</title>
+      </Helmet>
+
       {isPending ? (
         <div className='flex justify-center items-center py-40'>
           <FadeLoader color='#36d7b7' />

@@ -1,6 +1,18 @@
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+
 const WinnerCard = ({ data }) => {
+  useEffect(() => {
+    AOS.init({
+      duration: 4000,
+    });
+  }, []);
   return (
-    <div className='w-full max-w-md px-8 py-4 mt-16 bg-white rounded-lg shadow-lg border text-center ml-10'>
+    <div
+      data-aos='flip-down'
+      className='w-full max-w-md px-8 py-4 mt-16 bg-white rounded-lg shadow-lg border text-center ml-10'
+    >
       <div className='flex justify-center -mt-16 '>
         <img
           className='object-cover w-24 h-24 border-2 border-blue-500 rounded-full  '

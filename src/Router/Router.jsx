@@ -19,7 +19,7 @@ import UserProfile from "../Pages/UserDashboard/UserProfile";
 import WinningContest from "../Pages/UserDashboard/WinningContest";
 import SeeSubmission from "../Pages/CreatorDashboard/SeeSubmission";
 import Pricing from "../Pages/Pricing/Pricing";
-import Contact from "../Pages/Contact/Contact";
+import HowToSelect from "../Pages/HowToSelect/HowToSelect";
 
 const router = createBrowserRouter([
   {
@@ -58,8 +58,8 @@ const router = createBrowserRouter([
         element: <Pricing></Pricing>,
       },
       {
-        path: "/contact",
-        element: <Contact></Contact>,
+        path: "/process",
+        element: <HowToSelect></HowToSelect>,
       },
       {
         path: "/payment/:id",

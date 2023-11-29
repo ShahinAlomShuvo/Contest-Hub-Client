@@ -41,8 +41,8 @@ const UserProfile = () => {
         </div>
         <div className='pt-20 '>
           <ApexChart
-            attemptPercentage={totalAttempts - totalWins}
-            winningPercentage={totalWins}
+            loses={totalAttempts - totalWins}
+            win={totalWins}
           ></ApexChart>
         </div>
       </div>
