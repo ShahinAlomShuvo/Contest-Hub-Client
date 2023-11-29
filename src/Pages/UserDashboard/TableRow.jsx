@@ -30,7 +30,7 @@ const TableRow = ({ contest, idx }) => {
     console.log(submission);
 
     const res = await axiosSecure.post("/contest-submitted-task", submission);
-    console.log(res);
+    console.log(res.data);
     if (res.status === 200) {
       setIsModalOpen(false);
       setDisable(true);
@@ -41,7 +41,6 @@ const TableRow = ({ contest, idx }) => {
         icon: "success",
       });
     }
-    console.log(data.contestId);
   };
 
   //   handle modal

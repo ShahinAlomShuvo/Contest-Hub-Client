@@ -24,7 +24,19 @@ const UpdateContest = () => {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm({ defaultValues: singleContest });
+  } = useForm({
+    defaultValues: {
+      name: singleContest.name,
+      entryFee: singleContest.entryFee,
+      prizeMoney: singleContest.prizeMoney,
+      tags: singleContest.tags,
+      image: singleContest.image,
+      banner: singleContest.banner,
+      deadline: singleContest.deadline,
+      description: singleContest.description,
+      task: singleContest.task,
+    },
+  });
 
   const SubmitHandler = async (data) => {
     const {
@@ -78,7 +90,6 @@ const UpdateContest = () => {
               Contest name
             </label>
             <input
-              defaultValue={singleContest.name}
               {...register("name")}
               type='text'
               id='contestName'
@@ -95,7 +106,6 @@ const UpdateContest = () => {
               Entry Fee
             </label>
             <input
-              defaultValue={singleContest.entryFee}
               {...register("entryFee")}
               type='number'
               id='entryFee'
@@ -112,7 +122,6 @@ const UpdateContest = () => {
               Prize Money
             </label>
             <input
-              defaultValue={singleContest.prizeMoney}
               {...register("prizeMoney")}
               type='number'
               id='prizeMoney'
@@ -130,7 +139,6 @@ const UpdateContest = () => {
               Select a Tag
             </label>
             <select
-              defaultValue={singleContest.tags}
               {...register("tags")}
               id='countries'
               className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
@@ -204,7 +212,6 @@ const UpdateContest = () => {
             Contest Description
           </label>
           <textarea
-            defaultValue={singleContest.description}
             {...register("description")}
             id='description'
             rows='4'
@@ -221,7 +228,6 @@ const UpdateContest = () => {
             Task Submission
           </label>
           <textarea
-            defaultValue={singleContest.task}
             {...register("task")}
             id='task'
             rows='4'

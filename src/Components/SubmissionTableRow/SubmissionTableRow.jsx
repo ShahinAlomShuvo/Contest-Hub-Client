@@ -3,7 +3,7 @@ import useAxiosSecure from "../../Hook/useAxiosSecure";
 import { useState } from "react";
 
 const SubmissionTableRow = ({ row }) => {
-  const { submittedTask, email, name, contestId } = row;
+  const { submittedTask, email, name, contestId, contestName } = row;
 
   const [disable, setDisable] = useState(false);
 
@@ -30,7 +30,7 @@ const SubmissionTableRow = ({ row }) => {
         scope='row'
         className='px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white'
       >
-        Apple MacBook Pro 17"
+        {contestName}
       </th>
       <td className='px-6 py-4'>{name}</td>
       <td className='px-6 py-4'>{email}</td>

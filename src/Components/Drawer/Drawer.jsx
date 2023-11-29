@@ -78,15 +78,6 @@ const Drawer = () => {
                     My Created Contest
                   </NavLink>
                 </li>
-                <li>
-                  <NavLink
-                    to={"/dashboard/contestSubmission"}
-                    className='flex gap-2 items-center'
-                  >
-                    <FaAward size={26}></FaAward>
-                    Contest Submission
-                  </NavLink>
-                </li>
               </>
             )}
             {/* user routes */}
@@ -112,7 +103,7 @@ const Drawer = () => {
                 </li>
                 <li>
                   <NavLink
-                    to={"/dashboard/contestSubmission"}
+                    to={"/dashboard/userProfile"}
                     className='flex gap-2 items-center'
                   >
                     <CgProfile size={26} />
