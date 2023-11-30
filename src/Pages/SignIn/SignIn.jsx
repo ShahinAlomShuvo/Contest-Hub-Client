@@ -27,6 +27,7 @@ const SignIn = () => {
         name: res.user.displayName,
         email: res.user.email,
         role: "user",
+        image: res.user.photoURL,
       };
       const response = await axiosPublic.post("/users", userInfo);
       if (response.status === 200) {

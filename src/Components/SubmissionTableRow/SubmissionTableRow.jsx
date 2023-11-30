@@ -16,14 +16,12 @@ const SubmissionTableRow = ({ row }) => {
     },
   });
 
-  console.log(getWinnerEmail);
-
   const handleWinner = async () => {
     const res = await axiosSecure.patch(
       `/contest/winner/${contestId}/${email}`
     );
 
-    if (getWinnerEmail !== "") {
+    if (getWinnerEmail.length > 0) {
       return Swal.fire({
         icon: "error",
         title: "Oops...",

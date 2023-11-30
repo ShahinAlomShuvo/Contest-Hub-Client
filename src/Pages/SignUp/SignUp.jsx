@@ -28,7 +28,9 @@ const SignUp = () => {
         name: res.user.displayName,
         email: res.user.email,
         role: "user",
+        image: res.user.photoURL,
       };
+      console.log(userInfo);
       const response = await axiosPublic.post("/users", userInfo);
       if (response.status === 200) {
         Swal.fire({
@@ -64,6 +66,7 @@ const SignUp = () => {
       const userInfo = {
         name: data.name,
         email: data.email,
+        image: imgData,
         role: "user",
       };
       const res = await axiosPublic.post("/users", userInfo);

@@ -11,7 +11,6 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../Hook/useAxiosSecure";
 
 const ContestDetails = () => {
-  const contest = useLoaderData();
   const [users] = useUser();
   const { logOutUser } = useAuth();
   const navigate = useNavigate();
@@ -29,18 +28,14 @@ const ContestDetails = () => {
     });
   };
 
-  // TODO: FIXED THE ISSUE
-  /* 
-  const { isPending, data: contestDesc = [] } = useQuery({
-    queryKey: ["contestDesc"],
+  const { isPending, data: contestDescription = [] } = useQuery({
+    queryKey: ["contestDescription"],
     queryFn: async () => {
       const res = await axiosSecure.get(`/contest/${id}`);
       console.log(res);
-      return res;
+      return res.data;
     },
   });
- */
-  // console.log(contestDesc);
 
   const {
     description,
@@ -54,7 +49,7 @@ const ContestDetails = () => {
     prizeMoney,
     entryFee,
     _id,
-  } = contest;
+  } = contestDescription;
 
   const tabs = ["description", "criteria", "deadline"];
 

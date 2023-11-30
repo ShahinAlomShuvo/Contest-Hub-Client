@@ -97,9 +97,12 @@ const UserProfile = () => {
                     className='file-input file-input-bordered w-full max-w-xs'
                   />
                 </label>
-                <button className='w-1/2 block mx-auto rounded-full bg-gray-900 hover:shadow-lg font-semibold text-white px-6 py-2 mt-3'>
-                  Update
-                </button>
+
+                <input
+                  className='w-1/2 block mx-auto rounded-full bg-gray-900 hover:shadow-lg font-semibold text-white px-6 py-2 mt-3'
+                  type='submit'
+                  value='Update'
+                />
               </form>
             </div>
           </div>

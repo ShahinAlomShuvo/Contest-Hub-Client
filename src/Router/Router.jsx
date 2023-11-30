@@ -43,8 +43,6 @@ const router = createBrowserRouter([
             <ContestDetails></ContestDetails>
           </PrivateRoute>
         ),
-        /* loader: ({ params }) =>
-          fetch(`http://localhost:5000/contest/${params.id}`), */
       },
       {
         path: "/signIn",
