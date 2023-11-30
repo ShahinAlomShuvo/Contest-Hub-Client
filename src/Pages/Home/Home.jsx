@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet";
 import PopularContest from "./PopularContest";
 import ContestWinner from "./ContestWinner";
-import BestContestCreator from "./BestContestCreator";
+// import BestContestCreator from "./BestContestCreator";
 import Hero from "../../Components/Header/Hero/Hero";
 import { useState } from "react";
 import SearchResult from "./SearchResult";
@@ -22,7 +22,7 @@ const Home = () => {
       {searchValue && <SearchResult value={searchValue}></SearchResult>}
       <PopularContest></PopularContest>
       <ContestWinner></ContestWinner>
-      <BestContestCreator></BestContestCreator>
+      {/* <BestContestCreator></BestContestCreator> */}
     </div>
   );
 };

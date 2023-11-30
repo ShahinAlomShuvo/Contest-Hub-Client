@@ -1,14 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import LeaderBoardRow from "./LeaderBoardRow";
-import useAxiosSecure from "../../Hook/useAxiosSecure";
+import useAxiosPublic from "../../Hook/useAxiosPublic";
 
 const LeaderBoard = () => {
-  const axiosSecure = useAxiosSecure();
+  const axiosPublic = useAxiosPublic();
 
   const { isPending, data: winner = [] } = useQuery({
     queryKey: ["winner"],
     queryFn: async () => {
-      const res = await axiosSecure.get("/contest/winners");
+      const res = await axiosPublic.get("/contest/winners");
       return res.data;
     },
   });
