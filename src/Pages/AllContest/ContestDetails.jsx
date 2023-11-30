@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useLoaderData, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import useUser from "../../Hook/useUser";
@@ -48,6 +48,7 @@ const ContestDetails = () => {
     task,
     prizeMoney,
     entryFee,
+    winnerEmail,
     _id,
   } = contestDescription;
 
@@ -55,6 +56,18 @@ const ContestDetails = () => {
 
   const initialIndex = tabs.indexOf("description");
   const [tabIndex, setTabIndex] = useState(initialIndex);
+
+  const checkDeadline = () =>
+    new Date(deadline).getTime() < new Date().getTime();
+
+  const { data: winUser = [] } = useQuery({
+    queryKey: [winnerEmail, "winUser"],
+    queryFn: async () => {
+      const res = await axiosSecure.get(`/users/${winnerEmail}`);
+      return res.data;
+    },
+  });
+
   return (
     <>
       <Helmet>
@@ -68,10 +81,29 @@ const ContestDetails = () => {
         <div className=''>
           <div className='grid  gap-5 md:grid-cols-2 lg:grid-cols-3  pt-16 container mx-auto px-4 lg:0'>
             <div className=' space-y-2'>
+              <div className='flex gap-2 items-end'>
+                {checkDeadline() && winnerEmail.length && (
+                  <>
+                    <p>
+                      <span className='text-xl mr-2 font-light'>Winner:</span>
+                    </p>
+                    <div className='flex flex-col items-center'>
+                      <img
+                        className='w-20 h-20 rounded-full'
+                        src={winUser.image}
+                      />
+                      <h2 className='text-xl mr-2 font-light'>
+                        Name:{winUser.name}
+                      </h2>
+                    </div>
+                  </>
+                )}
+              </div>
               <p>
                 <span className='text-xl mr-2 font-light'>Contest Name:</span>
                 {name}
               </p>
+
               <p>
                 <span className='text-xl mr-2 font-light'>Contest Prize:</span>{" "}
                 ${entryFee}

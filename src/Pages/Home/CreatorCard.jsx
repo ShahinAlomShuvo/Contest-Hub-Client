@@ -2,12 +2,15 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 
-const WinnerCard = ({ data }) => {
+const CreatorCard = ({ data }) => {
+  console.log(data);
   useEffect(() => {
     AOS.init({
       duration: 4000,
     });
   }, []);
+
+  const desc = data.contestDescription.slice(0, 120);
   return (
     <div
       data-aos='flip-down'
@@ -22,14 +25,14 @@ const WinnerCard = ({ data }) => {
       </div>
 
       <h2 className='mt-2 text-2xl font-semibold text-gray-800  '>
-        Contest Winner
+        {data.name}
       </h2>
 
-      <p>Prize Money:${data.prizeMoney}</p>
+      <p>{data.contestName}</p>
 
-      <p className='mt-2 text-sm text-gray-600 '>{data.desc}</p>
+      <p className='mt-2 text-sm text-gray-600 '>{desc}</p>
 
-      <div className='flex justify-center mt-4'>
+      {/* <div className='flex justify-center mt-4'>
         <a
           href='#'
           className='text-lg font-medium text-blue-600 '
@@ -38,9 +41,9 @@ const WinnerCard = ({ data }) => {
         >
           {data.name}
         </a>
-      </div>
+      </div> */}
     </div>
   );
 };
 
-export default WinnerCard;
+export default CreatorCard;
