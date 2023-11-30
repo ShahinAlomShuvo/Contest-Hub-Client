@@ -2,12 +2,26 @@ import { Link } from "react-router-dom";
 import useAuth from "../../Hook/useAuth";
 import ApexChart from "./ApexChart";
 import SectionHeader from "../../Components/Shared/SectionHeader";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosPublic from "../../Hook/useAxiosPublic";
 
 const UserProfile = () => {
   const { user } = useAuth();
+  const axiosPublic = useAxiosPublic();
 
-  const totalAttempts = 10;
-  const totalWins = 7;
+  const { data: countUserInfo = [] } = useQuery({
+    queryKey: ["countUserInfo"],
+    queryFn: async () => {
+      const res = await axiosPublic.get(
+        `/contest/submission-info/${user.email}`
+      );
+
+      return res.data;
+    },
+  });
+
+  const totalAttempts = countUserInfo.attemptCount;
+  const totalWins = countUserInfo.winningCount;
 
   return (
     <>

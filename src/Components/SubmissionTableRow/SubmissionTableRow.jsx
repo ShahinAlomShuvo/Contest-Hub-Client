@@ -1,20 +1,39 @@
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../Hook/useAxiosSecure";
 import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 
 const SubmissionTableRow = ({ row }) => {
   const { submittedTask, email, name, contestId, contestName } = row;
-
   const [disable, setDisable] = useState(false);
-
   const axiosSecure = useAxiosSecure();
+
+  const { refetch, data: getWinnerEmail = [] } = useQuery({
+    queryKey: ["getWinnerEmail"],
+    queryFn: async () => {
+      const res = await axiosSecure.get(`/contest/${contestId}`);
+      return res.data.winnerEmail;
+    },
+  });
+
+  console.log(getWinnerEmail);
 
   const handleWinner = async () => {
     const res = await axiosSecure.patch(
       `/contest/winner/${contestId}/${email}`
     );
+
+    if (getWinnerEmail !== "") {
+      return Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Winner Is Declared Already",
+      });
+    }
+
     console.log(res);
     if (res.status === 200) {
+      refetch();
       setDisable(true);
       Swal.fire({
         title: "Congratulations",

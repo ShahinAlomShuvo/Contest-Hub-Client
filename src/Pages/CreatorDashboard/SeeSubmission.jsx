@@ -17,8 +17,6 @@ const SeeSubmission = () => {
     },
   });
 
-  console.log(aContestAllSubmission);
-
   return (
     <>
       <Helmet>

@@ -30,8 +30,8 @@ const ContestDetails = () => {
   };
 
   // TODO: FIXED THE ISSUE
-
-  /* const { isPending, data: contestDesc = [] } = useQuery({
+  /* 
+  const { isPending, data: contestDesc = [] } = useQuery({
     queryKey: ["contestDesc"],
     queryFn: async () => {
       const res = await axiosSecure.get(`/contest/${id}`);
@@ -39,8 +39,8 @@ const ContestDetails = () => {
       return res;
     },
   });
-
-  console.log(contestDesc); */
+ */
+  // console.log(contestDesc);
 
   const {
     description,

@@ -20,6 +20,7 @@ import WinningContest from "../Pages/UserDashboard/WinningContest";
 import SeeSubmission from "../Pages/CreatorDashboard/SeeSubmission";
 import Pricing from "../Pages/Pricing/Pricing";
 import HowToSelect from "../Pages/HowToSelect/HowToSelect";
+import LeaderBoard from "../Pages/LeaderBoard/LeaderBoard";
 
 const router = createBrowserRouter([
   {
@@ -42,8 +43,8 @@ const router = createBrowserRouter([
             <ContestDetails></ContestDetails>
           </PrivateRoute>
         ),
-        loader: ({ params }) =>
-          fetch(`http://localhost:5000/contest/${params.id}`),
+        /* loader: ({ params }) =>
+          fetch(`http://localhost:5000/contest/${params.id}`), */
       },
       {
         path: "/signIn",
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
       {
         path: "/pricing",
         element: <Pricing></Pricing>,
+      },
+      {
+        path: "/leader-board",
+        element: <LeaderBoard></LeaderBoard>,
       },
       {
         path: "/process",

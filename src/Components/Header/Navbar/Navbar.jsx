@@ -42,6 +42,9 @@ const Navbar = () => {
       <li className=' font-semibold'>
         <NavLink to={"/process"}>Process</NavLink>
       </li>
+      <li className=' font-semibold'>
+        <NavLink to={"/leader-board"}>Leader Board</NavLink>
+      </li>
     </>
   );
   return (
