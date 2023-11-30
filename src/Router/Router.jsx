@@ -21,6 +21,8 @@ import SeeSubmission from "../Pages/CreatorDashboard/SeeSubmission";
 import Pricing from "../Pages/Pricing/Pricing";
 import HowToSelect from "../Pages/HowToSelect/HowToSelect";
 import LeaderBoard from "../Pages/LeaderBoard/LeaderBoard";
+import CreatorRouter from "./CreatorRouter";
+import AdminRouter from "./AdminRouter";
 
 const router = createBrowserRouter([
   {
@@ -85,28 +87,52 @@ const router = createBrowserRouter([
       // admin route
       {
         path: "/dashboard/manageUsers",
-        element: <ManageUsers></ManageUsers>,
+        element: (
+          <AdminRouter>
+            <ManageUsers></ManageUsers>
+          </AdminRouter>
+        ),
       },
       {
         path: "/dashboard/manageContest",
-        element: <ManageContest></ManageContest>,
+        element: (
+          <AdminRouter>
+            <ManageContest></ManageContest>
+          </AdminRouter>
+        ),
       },
       // creator route
       {
         path: "/dashboard/addContest",
-        element: <AddContest></AddContest>,
+        element: (
+          <CreatorRouter>
+            <MyCreateContest></MyCreateContest>
+          </CreatorRouter>
+        ),
       },
       {
         path: "/dashboard/myCreatedContest",
-        element: <MyCreateContest></MyCreateContest>,
+        element: (
+          <CreatorRouter>
+            <MyCreateContest></MyCreateContest>
+          </CreatorRouter>
+        ),
       },
       {
         path: "/dashboard/seeSubmission/:id",
-        element: <SeeSubmission></SeeSubmission>,
+        element: (
+          <CreatorRouter>
+            <SeeSubmission></SeeSubmission>
+          </CreatorRouter>
+        ),
       },
       {
         path: "/dashboard/updateContest/:id",
-        element: <UpdateContest></UpdateContest>,
+        element: (
+          <CreatorRouter>
+            <UpdateContest></UpdateContest>
+          </CreatorRouter>
+        ),
       },
       // user route
       {
