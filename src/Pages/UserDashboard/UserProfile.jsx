@@ -4,10 +4,14 @@ import ApexChart from "./ApexChart";
 import SectionHeader from "../../Components/Shared/SectionHeader";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../Hook/useAxiosPublic";
+import { useForm } from "react-hook-form";
+import { imgUpload } from "../../Utility/utility";
+import Swal from "sweetalert2";
 
 const UserProfile = () => {
   const { user } = useAuth();
   const axiosPublic = useAxiosPublic();
+  const { updateUser } = useAuth();
 
   const { data: countUserInfo = [] } = useQuery({
     queryKey: ["countUserInfo"],
@@ -22,6 +26,30 @@ const UserProfile = () => {
 
   const totalAttempts = countUserInfo.attemptCount;
   const totalWins = countUserInfo.winningCount;
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = async (data) => {
+    try {
+      // upload img
+      const imgData = await imgUpload(data.image[0]);
+
+      // update user profile
+      const res = await updateUser(data.name, imgData);
+      console.log(res);
+    } catch (err) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: `${err.message}`,
+      });
+      console.log(err.message);
+    }
+  };
 
   return (
     <>
@@ -47,9 +75,32 @@ const UserProfile = () => {
             </div>
 
             <div className='p-4 border-t mx-8 mt-2'>
-              <button className='w-1/2 block mx-auto rounded-full bg-gray-900 hover:shadow-lg font-semibold text-white px-6 py-2'>
-                <Link to={"/"}>Go Home</Link>
-              </button>
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <label className='form-control w-full max-w-xs'>
+                  <div className='label'>
+                    <span className='label-text'>Your Name</span>
+                  </div>
+                  <input
+                    {...register("name")}
+                    type='text'
+                    placeholder='Name'
+                    className='input input-bordered w-full max-w-xs'
+                  />
+                </label>
+                <label className='form-control w-full max-w-xs'>
+                  <div className='label'>
+                    <span className='label-text'>Upload Profile Picture</span>
+                  </div>
+                  <input
+                    {...register("image")}
+                    type='file'
+                    className='file-input file-input-bordered w-full max-w-xs'
+                  />
+                </label>
+                <button className='w-1/2 block mx-auto rounded-full bg-gray-900 hover:shadow-lg font-semibold text-white px-6 py-2 mt-3'>
+                  Update
+                </button>
+              </form>
             </div>
           </div>
         </div>
