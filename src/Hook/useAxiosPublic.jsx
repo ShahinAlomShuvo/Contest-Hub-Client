@@ -9,5 +9,3 @@ const useAxiosPublic = () => {
 };
 
 export default useAxiosPublic;
-
-// http://localhost:5000

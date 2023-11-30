@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useLoaderData, useNavigate } from "react-router-dom";
+import { Link, useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import useUser from "../../Hook/useUser";
@@ -7,12 +7,17 @@ import Swal from "sweetalert2";
 import useAuth from "../../Hook/useAuth";
 import CountDown from "./countDown";
 import { Helmet } from "react-helmet";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosSecure from "../../Hook/useAxiosSecure";
 
 const ContestDetails = () => {
   const contest = useLoaderData();
   const [users] = useUser();
   const { logOutUser } = useAuth();
   const navigate = useNavigate();
+  const axiosSecure = useAxiosSecure();
+  const { id } = useParams();
+  console.log(id);
 
   const handleUserValidate = async () => {
     await logOutUser();
@@ -23,6 +28,19 @@ const ContestDetails = () => {
       text: "Only User Can Registrar",
     });
   };
+
+  // TODO: FIXED THE ISSUE
+
+  /* const { isPending, data: contestDesc = [] } = useQuery({
+    queryKey: ["contestDesc"],
+    queryFn: async () => {
+      const res = await axiosSecure.get(`/contest/${id}`);
+      console.log(res);
+      return res;
+    },
+  });
+
+  console.log(contestDesc); */
 
   const {
     description,
