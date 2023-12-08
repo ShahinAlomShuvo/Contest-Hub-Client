@@ -10,7 +10,7 @@ import AddContest from "../Pages/CreatorDashboard/AddContest";
 import AllContest from "../Pages/AllContest/AllContest";
 import ContestDetails from "../Pages/AllContest/ContestDetails";
 import Payment from "../Pages/Payment/Payment";
-import MyCreateContest from "../Pages/CreatorDashboard/MyCreateContest";
+
 import UpdateContest from "../Pages/CreatorDashboard/updateContest";
 import ManageUsers from "../Pages/AdminDashboard/ManageUsers";
 import ManageContest from "../Pages/AdminDashboard/ManageContest";
@@ -21,8 +21,7 @@ import SeeSubmission from "../Pages/CreatorDashboard/SeeSubmission";
 import Pricing from "../Pages/Pricing/Pricing";
 import HowToSelect from "../Pages/HowToSelect/HowToSelect";
 import LeaderBoard from "../Pages/LeaderBoard/LeaderBoard";
-import CreatorRouter from "./CreatorRouter";
-import AdminRouter from "./AdminRouter";
+import MyCreateContest from "../Pages/CreatorDashboard/MyCreateContest";
 
 const router = createBrowserRouter([
   {
@@ -87,52 +86,28 @@ const router = createBrowserRouter([
       // admin route
       {
         path: "/dashboard/manageUsers",
-        element: (
-          <AdminRouter>
-            <ManageUsers></ManageUsers>
-          </AdminRouter>
-        ),
+        element: <ManageUsers></ManageUsers>,
       },
       {
         path: "/dashboard/manageContest",
-        element: (
-          <AdminRouter>
-            <ManageContest></ManageContest>
-          </AdminRouter>
-        ),
+        element: <ManageContest></ManageContest>,
       },
       // creator route
       {
         path: "/dashboard/addContest",
-        element: (
-          <CreatorRouter>
-            <MyCreateContest></MyCreateContest>
-          </CreatorRouter>
-        ),
+        element: <AddContest></AddContest>,
       },
       {
         path: "/dashboard/myCreatedContest",
-        element: (
-          <CreatorRouter>
-            <MyCreateContest></MyCreateContest>
-          </CreatorRouter>
-        ),
+        element: <MyCreateContest></MyCreateContest>,
       },
       {
         path: "/dashboard/seeSubmission/:id",
-        element: (
-          <CreatorRouter>
-            <SeeSubmission></SeeSubmission>
-          </CreatorRouter>
-        ),
+        element: <SeeSubmission></SeeSubmission>,
       },
       {
         path: "/dashboard/updateContest/:id",
-        element: (
-          <CreatorRouter>
-            <UpdateContest></UpdateContest>
-          </CreatorRouter>
-        ),
+        element: <UpdateContest></UpdateContest>,
       },
       // user route
       {

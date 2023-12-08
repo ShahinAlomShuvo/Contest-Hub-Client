@@ -54,8 +54,8 @@ const UserProfile = () => {
   return (
     <>
       <SectionHeader title={"My Profile"}></SectionHeader>
-      <div className='grid grid-cols-2'>
-        <div>
+      <div className='grid lg:grid-cols-2'>
+        <div className='order-2 lg:order-1'>
           <div className='max-w-2xl mx-4 sm:max-w-sm md:max-w-sm lg:max-w-sm xl:max-w-sm sm:mx-auto md:mx-auto lg:mx-auto xl:mx-auto mt-16 bg-white shadow-xl rounded-lg text-gray-900'>
             <div className='rounded-t-lg h-32 overflow-hidden'>
               <img
@@ -107,7 +107,7 @@ const UserProfile = () => {
             </div>
           </div>
         </div>
-        <div className='pt-20 '>
+        <div className='pt-20 order-1 lg:order-2'>
           <ApexChart
             loses={totalAttempts - totalWins}
             win={totalWins}

@@ -103,7 +103,7 @@ const CheckoutForm = () => {
   };
 
   return (
-    <div className='space-y-16 border-2 mx-auto w-[400px] md:w-[600px]  lg:w-[800px]   p-10 shadow-2xl bg-white rounded-lg my-20'>
+    <div className='space-y-16 border-2 mx-auto w-[370px] md:w-[600px]  lg:w-[800px]   p-10 shadow-2xl bg-white rounded-lg my-20'>
       <div>
         <h2 className='text-center text-2xl md:text-3xl font-semibold'>
           Payment for:{clientInfo?.name} Contest

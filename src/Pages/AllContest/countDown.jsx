@@ -35,7 +35,7 @@ const CountDown = ({ date }) => {
   return (
     <div>
       {timeLeft.isActive ? (
-        <div className='flex  justify-center gap-6 mt-10'>
+        <div className='flex  justify-center gap-4 mt-10'>
           <div>
             <div className='bg-fuchsia-600 p-3 rounded  text-white'>
               {timeLeft.days}
@@ -55,18 +55,18 @@ const CountDown = ({ date }) => {
               {timeLeft.minutes}
             </div>
 
-            <div className='pt-2 text-xl'>minutes,</div>
+            <div className='pt-2 text-xl'>min,</div>
           </div>
           <div>
             <div className='bg-fuchsia-600 p-3 rounded  text-white'>
               {timeLeft.seconds}
             </div>
 
-            <div className='pt-2 text-xl'>seconds</div>
+            <div className='pt-2 text-xl'>sec</div>
           </div>
         </div>
       ) : (
-        <div className='flex  justify-center gap-6 mt-10'>
+        <div className='flex  justify-center gap-4 mt-10'>
           <div>
             <div className='bg-fuchsia-600 p-3 rounded  text-white'>0</div>
 
@@ -80,12 +80,12 @@ const CountDown = ({ date }) => {
           <div>
             <div className='bg-fuchsia-600 p-3 rounded  text-white'>0</div>
 
-            <div className='pt-2 text-xl'>minutes,</div>
+            <div className='pt-2 text-xl'>min,</div>
           </div>
           <div>
             <div className='bg-fuchsia-600 p-3 rounded  text-white'>0</div>
 
-            <div className='pt-2 text-xl'>seconds</div>
+            <div className='pt-2 text-xl'>sec</div>
           </div>
         </div>
       )}

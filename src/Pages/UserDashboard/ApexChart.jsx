@@ -15,7 +15,7 @@ const ApexChart = ({ loses, win }) => {
           breakpoint: 480,
           options: {
             chart: {
-              width: 200,
+              width: 300,
             },
             legend: {
               position: "bottom",
@@ -34,7 +34,7 @@ const ApexChart = ({ loses, win }) => {
   }, [loses, win]);
 
   return (
-    <div id='chart'>
+    <div className='flex justify-center' id='chart'>
       <ReactApexChart
         options={chartData.options}
         series={chartData.series}

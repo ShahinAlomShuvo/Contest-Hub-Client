@@ -3,12 +3,12 @@ import Swal from "sweetalert2";
 import useAuth from "../../../Hook/useAuth";
 import { FaAward } from "react-icons/fa";
 import useUser from "../../../Hook/useUser";
+import NavEnd from "./NavEnd";
 
 const Navbar = () => {
   const { user, logOutUser } = useAuth();
   const [users] = useUser();
   const role = users?.role;
-
   const logOut = async () => {
     try {
       const res = await logOutUser();
@@ -30,23 +30,24 @@ const Navbar = () => {
 
   const navLinks = (
     <>
-      <li className=' font-semibold'>
+      <li>
         <NavLink to={"/"}>Home</NavLink>
       </li>
-      <li className=' font-semibold text-gray-600 lg:text-white'>
+      <li>
         <NavLink to={"/allContest"}>All Contest</NavLink>
       </li>
-      <li className=' font-semibold'>
+      <li>
         <NavLink to={"/pricing"}>Pricing</NavLink>
       </li>
-      <li className=' font-semibold'>
+      <li>
         <NavLink to={"/process"}>Process</NavLink>
       </li>
-      <li className=' font-semibold'>
+      <li>
         <NavLink to={"/leader-board"}>Leader Board</NavLink>
       </li>
     </>
   );
+
   return (
     <div className='bg-[#4B4436] text-white'>
       <nav className='navbar container mx-auto '>
@@ -84,48 +85,7 @@ const Navbar = () => {
           <ul className='menu menu-horizontal px-1'>{navLinks}</ul>
         </div>
         <div className='navbar-end space-x-4'>
-          {/* nav end content  */}
-
-          <div className={`dropdown dropdown-end ${user ? "block" : "hidden"}`}>
-            <div tabIndex={0} className='avatar hover:cursor-pointer'>
-              <div className='w-9 md:w-11 rounded-full'>
-                <img src={user && user.photoURL} alt='User Avatar' />
-              </div>
-            </div>
-            <ul
-              tabIndex={0}
-              className='dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 space-y-2 '
-            >
-              <li className='pl-2 font-semibold text-lg text-gray-800'>
-                {user && user.displayName}
-              </li>
-              <li className='bg-base-200 rounded-md text-gray-950'>
-                {role === "admin" && (
-                  <Link to={"/dashboard/manageUsers"}>Dashboard</Link>
-                )}
-                {role === "creator" && (
-                  <Link to={"/dashboard/myCreatedContest"}>Dashboard</Link>
-                )}
-                {role === "user" && (
-                  <Link to={"/dashboard/userProfile"}>Dashboard</Link>
-                )}
-              </li>
-
-              <li className='btn btn-sm' onClick={logOut}>
-                Log out
-              </li>
-            </ul>
-          </div>
-          <div>
-            {user ? null : (
-              <Link
-                to={"/signIn"}
-                className='btn bg-[#4B4436] text-white btn-outline '
-              >
-                Login
-              </Link>
-            )}
-          </div>
+          <NavEnd user={user} logOut={logOut} role={role}></NavEnd>
         </div>
       </nav>
     </div>

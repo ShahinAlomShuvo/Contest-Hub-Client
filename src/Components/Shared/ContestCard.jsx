@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const ContestCard = ({ items }) => {
   useEffect(() => {
     AOS.init({
-      duration: 2000,
+      duration: 3000,
     });
   }, []);
 
@@ -14,7 +14,7 @@ const ContestCard = ({ items }) => {
   const desc = description?.slice(0, 120);
   return (
     <div
-      data-aos='zoom-in'
+      data-aos='fade-up'
       className='hover:shadow-2xl  transition   bg-white rounded-md'
     >
       <div className='w-full h-[180px] relative   mb-20 '>

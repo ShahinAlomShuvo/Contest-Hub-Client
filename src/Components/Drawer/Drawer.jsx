@@ -1,6 +1,5 @@
 import {
   FaAward,
-  FaEnvelope,
   FaHome,
   FaList,
   FaSearch,
