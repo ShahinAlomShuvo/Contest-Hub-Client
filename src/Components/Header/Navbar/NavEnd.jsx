@@ -28,7 +28,7 @@ const NavEnd = ({ user, logOut, role }) => {
                 aria-label='close sidebar'
                 className='drawer-overlay'
               ></label>
-              <div className='menu p-4 w-80 min-h-full bg-base-200 text-base-content space-y-2 '>
+              <div className='menu p-4 w-80 min-h-full bg-[#001E2B] text-base-content space-y-2 z-10'>
                 {role === "user" ? (
                   <Link to={"/dashboard/userProfile"}>
                     <button className='btn btn-block btn-sm btn-neutral'>
