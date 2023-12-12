@@ -19,9 +19,9 @@ import UserProfile from "../Pages/UserDashboard/UserProfile";
 import WinningContest from "../Pages/UserDashboard/WinningContest";
 import SeeSubmission from "../Pages/CreatorDashboard/SeeSubmission";
 import Pricing from "../Pages/Pricing/Pricing";
-import HowToSelect from "../Pages/HowToSelect/HowToSelect";
 import LeaderBoard from "../Pages/LeaderBoard/LeaderBoard";
 import MyCreateContest from "../Pages/CreatorDashboard/MyCreateContest";
+import Quiz from "../Pages/Quiz/Quiz";
 
 const router = createBrowserRouter([
   {
@@ -62,8 +62,8 @@ const router = createBrowserRouter([
         element: <LeaderBoard></LeaderBoard>,
       },
       {
-        path: "/process",
-        element: <HowToSelect></HowToSelect>,
+        path: "/quiz",
+        element: <Quiz></Quiz>,
       },
       {
         path: "/payment/:id",
