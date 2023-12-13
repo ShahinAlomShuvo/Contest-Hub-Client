@@ -22,7 +22,6 @@ const ContestWinner = () => {
       return res.data;
     },
   });
-  console.log(topWinner);
 
   return (
     <section className='py-10 bg-gray-50 sm:py-16 lg:py-24'>

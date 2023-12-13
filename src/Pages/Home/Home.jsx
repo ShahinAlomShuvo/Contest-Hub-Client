@@ -5,13 +5,10 @@ import BestContestCreator from "./BestContestCreator";
 import Hero from "../../Components/Header/Hero/Hero";
 import { useState } from "react";
 import SearchResult from "./SearchResult";
-import HeroSection from "./HeroSection";
-import Quiz from "../Quiz/Quiz";
 import HowToSelect from "../HowToSelect/HowToSelect";
 
 const Home = () => {
   const [searchValue, setSearchValue] = useState("");
-  console.log(searchValue);
 
   return (
     <div>

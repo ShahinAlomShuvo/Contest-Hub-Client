@@ -3,7 +3,6 @@ import "aos/dist/aos.css";
 import { useEffect } from "react";
 
 const CreatorCard = ({ data }) => {
-  console.log(data);
   useEffect(() => {
     AOS.init({
       duration: 4000,

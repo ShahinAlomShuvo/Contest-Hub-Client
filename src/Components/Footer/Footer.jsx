@@ -6,6 +6,7 @@ import {
   FaInstagram,
   FaAward,
 } from "react-icons/fa";
+import GetIp from "../GetIp/GetIp";
 
 const Footer = () => {
   return (
@@ -19,6 +20,9 @@ const Footer = () => {
               <br />
               Arranging best contest since 1992
             </p>
+            <span>
+              <GetIp />
+            </span>
           </aside>
           <nav>
             <header className='footer-title'>My Account</header>
