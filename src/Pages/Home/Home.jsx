@@ -7,6 +7,7 @@ import { useState } from "react";
 import SearchResult from "./SearchResult";
 import HowToSelect from "../HowToSelect/HowToSelect";
 import HeroSection from "./HeroSection";
+import TrustedBy from "./TrustedBy";
 
 const Home = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -22,6 +23,7 @@ const Home = () => {
       {searchValue && <SearchResult value={searchValue}></SearchResult>}
       <PopularContest></PopularContest>
       <ContestWinner></ContestWinner>
+      <TrustedBy></TrustedBy>
       <HowToSelect></HowToSelect>
       <BestContestCreator></BestContestCreator>
     </div>
