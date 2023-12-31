@@ -73,10 +73,10 @@ const ContestDetails = () => {
       <Helmet>
         <title>ContestHub | Contest-Details</title>
       </Helmet>
-      <div className='pb-10'>
+      <div className='pb-10 pt-16'>
         <img className='w-full h-96' src={banner} alt='' />
         <div className='container mx-auto  px-4 lg:px-0'>
-          <img className='rounded w-40 h-40 -mt-20' src={image} alt='' />
+          <img className='rounded w-40 h-40 -mt-20 ' src={image} alt='' />
         </div>
         <div className=''>
           <div className='grid  gap-5 md:grid-cols-2 lg:grid-cols-3  pt-16 container mx-auto px-4 lg:0'>

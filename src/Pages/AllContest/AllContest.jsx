@@ -42,7 +42,7 @@ const AllContest = () => {
         <title>ContestHub | All Contest</title>
       </Helmet>
 
-      <div className='bg-base-300 min-h-screen '>
+      <div className='bg-base-300 min-h-screen pt-16'>
         <div className='py-10 container mx-auto'>
           <div className=' py-5 text-center '>
             <Tabs

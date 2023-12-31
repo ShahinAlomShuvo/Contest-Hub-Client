@@ -6,8 +6,8 @@ const Pricing = () => {
       <Helmet>
         <title>ContestHub | Pricing</title>
       </Helmet>
-      <section className='py-10 bg-gray-900 sm:py-16 lg:py-24'>
-        <div className='max-w-5xl px-4 mx-auto sm:px-6 lg:px-8'>
+      <section className='py-10 bg-gray-900 sm:py-16 lg:py-24 '>
+        <div className='max-w-5xl px-4 mx-auto sm:px-6 lg:px-8 mt-16'>
           <div className='grid grid-cols-1 md:items-stretch md:grid-cols-2 gap-x-12 lg:gap-x-20 gap-y-10'>
             <div className='flex flex-col justify-between lg:py-5'>
               <h2 className='text-3xl font-bold leading-tight text-white sm:text-4xl lg:leading-tight lg:text-5xl'>
