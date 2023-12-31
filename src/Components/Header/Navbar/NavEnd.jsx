@@ -74,10 +74,7 @@ const NavEnd = ({ user, logOut, role }) => {
 
         <div>
           {user ? null : (
-            <Link
-              to={"/signIn"}
-              className='btn bg-[#4B4436] text-white btn-outline '
-            >
+            <Link to={"/signIn"} className='btn btn-outline text-white  '>
               Login
             </Link>
           )}

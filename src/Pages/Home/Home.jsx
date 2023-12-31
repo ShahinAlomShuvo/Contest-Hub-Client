@@ -6,6 +6,7 @@ import Hero from "../../Components/Header/Hero/Hero";
 import { useState } from "react";
 import SearchResult from "./SearchResult";
 import HowToSelect from "../HowToSelect/HowToSelect";
+import HeroSection from "./HeroSection";
 
 const Home = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -16,8 +17,8 @@ const Home = () => {
         <title>ContestHub | Home</title>
       </Helmet>
 
-      <Hero setSearchValue={setSearchValue}></Hero>
-      {/* <HeroSection></HeroSection> */}
+      {/* <Hero setSearchValue={setSearchValue}></Hero> */}
+      <HeroSection setSearchValue={setSearchValue}></HeroSection>
       {searchValue && <SearchResult value={searchValue}></SearchResult>}
       <PopularContest></PopularContest>
       <ContestWinner></ContestWinner>
