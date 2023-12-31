@@ -44,7 +44,7 @@ const HeroSection = ({ setSearchValue }) => {
                 placeholder='Search by tag'
                 className='py-4 px-4 rounded-xl w-full rounded-r-none outline-primary-content'
               />
-              <button className='bg-green-700 px-4 lg:px-8 rounded-xl rounded-l-none hover:bg-green-600 active:bg-green-800'>
+              <button className='bg-[#009688] px-4 lg:px-8 rounded-xl rounded-l-none transition duration-300 hover:bg-[#00796b] transform  active:bg-[#005a4b] active:scale-95'>
                 Search
               </button>
             </div>

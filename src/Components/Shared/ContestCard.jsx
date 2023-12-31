@@ -15,12 +15,12 @@ const ContestCard = ({ items }) => {
   return (
     <div
       data-aos='fade-up'
-      className='hover:shadow-2xl  transition   bg-white rounded-md'
+      className='group bg-white rounded-md transition duration-300 shadow-xl  hover:scale-y-105'
     >
       <div className='w-full h-[180px] relative   mb-20 '>
-        <img className='h-full w-full    ' src={banner} />
+        <img className='h-full w-full rounded-t-md   ' src={banner} />
         <img
-          className='absolute -bottom-12 left-1/2 transform -translate-x-1/2 w-[120px] h-[100px] rounded-md border-2 border-[#4B4436]'
+          className='absolute -bottom-12 left-1/2 transform -translate-x-1/2 w-[120px] h-[100px] rounded-md  ring-4 ring-[#009688]'
           src={image}
           alt=''
         />
@@ -32,10 +32,7 @@ const ContestCard = ({ items }) => {
         </p>
         <p className='font-light text-neutral-500'>{desc}......</p>
         <Link to={`/allContest/${_id}`}>
-          <button
-            className='middle none center rounded-lg bg-[#4B4436] py-3.5 px-7 font-sans text-xs font-bold  text-white shadow-md shadow-stone-500/20 transition-all hover:shadow-lg hover:shadow-stone-500/40  active:opacity-[0.45] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none w-full capitalize mt-6'
-            data-ripple-light='true'
-          >
+          <button className='bg-[#009688] px-4 lg:px-8 rounded-xl btn btn-block text-white transition duration-300 hover:bg-[#00796b] transform  active:bg-[#005a4b] active:scale-95 mt-6'>
             Contest Details
           </button>
         </Link>

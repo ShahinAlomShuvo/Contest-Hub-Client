@@ -16,7 +16,7 @@ const PopularContest = () => {
 
   return (
     <>
-      <div className='bg-base-300 py-10'>
+      <div className='bg-[#F2F2F3] py-10'>
         <SectionHeader
           title={"Popular Contests"}
           subtitle={`Trending Contests. Dive in now and show your skills in the most popular competitions. Your spotlight moment awaits!`}
