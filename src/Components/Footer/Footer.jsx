@@ -10,9 +10,9 @@ import GetIp from "../GetIp/GetIp";
 
 const Footer = () => {
   return (
-    <footer className='py-10 bg-gray-900 sm:pt-16 lg:pt-24'>
+    <footer className='py-10 bg-[#211835] sm:pt-16 lg:pt-24'>
       <div className='px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl'>
-        <div className='footer grid-cols-2  md:grid-cols-4 p-10 bg-neutral text-neutral-content rounded'>
+        <div className='footer grid-cols-2  md:grid-cols-4 p-10  text-neutral-content rounded'>
           <aside>
             <h2 className='text-lg lg:text-3xl font-bold'>ContestHub</h2>
             <p>
