@@ -12,7 +12,7 @@ import SectionHeader from "../../Components/Shared/SectionHeader";
 
 const TrustedBy = () => {
   return (
-    <div className='bg-gray-400 pb-10'>
+    <div className='bg-gray-400 pb-10 pt-0'>
       <SectionHeader title={"Trusted By"}></SectionHeader>
       <Marquee>
         <img className='w-44  mr-14' src={company1} alt='' />
