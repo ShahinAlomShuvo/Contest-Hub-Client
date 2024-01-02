@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const NavEnd = ({ user, logOut, role }) => {
   return (
     <>
-      <div className='navbar-end space-x-4'>
+      <div>
         {
           <div className={`drawer drawer-end  ${user ? "block" : "hidden"}`}>
             <input id='my-drawer-4' type='checkbox' className='drawer-toggle' />
