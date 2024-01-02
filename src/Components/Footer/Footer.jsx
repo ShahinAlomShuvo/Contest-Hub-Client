@@ -1,12 +1,7 @@
 import { Link } from "react-router-dom";
-import {
-  FaFacebook,
-  FaLinkedin,
-  FaTwitter,
-  FaInstagram,
-  FaAward,
-} from "react-icons/fa";
+import { FaFacebook, FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa";
 import GetIp from "../GetIp/GetIp";
+import logo from "../../assets/Images/icon.png";
 
 const Footer = () => {
   return (
@@ -52,7 +47,7 @@ const Footer = () => {
 
         <div className='flex flex-wrap items-center justify-between'>
           <div className='flex  gap-2'>
-            <FaAward className='text-white' size='30'></FaAward>
+            <img className='w-10' src={logo} alt='' />
             <h2 className='text-white text-3xl'>ContestHub</h2>
           </div>
 

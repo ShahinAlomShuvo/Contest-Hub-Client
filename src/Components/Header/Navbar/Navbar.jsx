@@ -1,9 +1,9 @@
 import { Link, NavLink } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../../../Hook/useAuth";
-import { FaAward } from "react-icons/fa";
 import useUser from "../../../Hook/useUser";
 import NavEnd from "./NavEnd";
+import logo from "../../../assets/Images/icon.png";
 
 const Navbar = () => {
   const { user, logOutUser } = useAuth();
@@ -91,7 +91,7 @@ const Navbar = () => {
             </div>
           </div>
           <Link to={"/"} className='flex items-center gap-2'>
-            <FaAward size={30}></FaAward>
+            <img className='w-10' src={logo} alt='' />
             <h2 className='  text-2xl md:text-3xl font-bold'>ContestHub</h2>
           </Link>
         </div>

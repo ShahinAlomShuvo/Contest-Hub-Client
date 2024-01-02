@@ -13,12 +13,12 @@ const SubscribeUs = () => {
         backgroundPosition: "center",
       }}
     >
-      <div className='container mx-auto grid grid-cols-6 gap-10 place-items-center'>
-        <div className='col-span-2'>
+      <div className='container mx-auto grid md:grid-cols-6 gap-10 place-items-center text-center place-content-center px-4'>
+        <div className='md:col-span-2'>
           <img src={subscribe} />
         </div>
-        <div className='col-span-3'>
-          <h2 className='text-3xl font-bold text-white'>
+        <div className='md:col-span-3'>
+          <h2 className='text-3xl md:text-2xl lg:text-3xl font-bold text-white'>
             INVITE FRIENDS AND WIN REWARDS. <br />
             JOIN ContestHub TODAY
           </h2>

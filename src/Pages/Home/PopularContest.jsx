@@ -21,7 +21,7 @@ const PopularContest = () => {
           title={"Popular Contests"}
           subtitle={`Trending Contests. Dive in now and show your skills in the most popular competitions. Your spotlight moment awaits!`}
         ></SectionHeader>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  container mx-auto gap-10 px-4 lg:px-0'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  container mx-auto gap-10 px-4 xl:px-0'>
           {popularContest?.map((items) => (
             <ContestCard
               key={items._id}

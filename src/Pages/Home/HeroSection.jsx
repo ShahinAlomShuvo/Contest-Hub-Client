@@ -14,7 +14,7 @@ const HeroSection = ({ setSearchValue }) => {
 
   return (
     <div
-      className='h-screen flex items-center justify-center py-[480px] md:py-80 lg:py-0 px-4 lg:px-0'
+      className='h-screen flex items-center justify-center py-[480px] md:py-80 xl:py-0 px-4  xl:px-0'
       style={{
         backgroundImage: `url(${bgImage})`,
         backgroundColor: "#2A1E43",
@@ -50,7 +50,7 @@ const HeroSection = ({ setSearchValue }) => {
             </div>
           </form>
         </div>
-        <div>
+        <div className='order-first md:order-last'>
           <img src={heroImage} alt='' />
         </div>
       </div>
