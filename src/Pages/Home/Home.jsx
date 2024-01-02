@@ -9,6 +9,7 @@ import HowToSelect from "../HowToSelect/HowToSelect";
 import HeroSection from "./HeroSection";
 import TrustedBy from "./TrustedBy";
 import MyTeam from "./MyTeam";
+import SubscribeUs from "./SubscribeUs";
 
 const Home = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -28,6 +29,7 @@ const Home = () => {
       <TrustedBy></TrustedBy>
       <HowToSelect></HowToSelect>
       <BestContestCreator></BestContestCreator>
+      <SubscribeUs></SubscribeUs>
     </div>
   );
 };
