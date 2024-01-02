@@ -122,14 +122,14 @@ const ContestDetails = () => {
               </p>
               {users.role === "user" ? (
                 <Link to={`/payment/${_id}`}>
-                  <button className='btn btn-info btn-block text-white mt-4'>
+                  <button className='bg-[#009688] px-4 lg:px-8 rounded-xl btn btn-block text-white transition duration-300 hover:bg-[#00796b] transform  active:bg-[#005a4b] active:scale-95 mt-6 border-none'>
                     Registration
                   </button>
                 </Link>
               ) : (
                 <button
                   onClick={handleUserValidate}
-                  className='btn btn-info btn-block text-white mt-4'
+                  className='bg-[#009688] px-4 lg:px-8 rounded-xl btn btn-block text-white transition duration-300 hover:bg-[#00796b] transform  active:bg-[#005a4b] active:scale-95 mt-6 border-none'
                 >
                   Registration
                 </button>
@@ -141,7 +141,7 @@ const ContestDetails = () => {
                 selectedIndex={tabIndex}
                 onSelect={(index) => setTabIndex(index)}
               >
-                <TabList className='bg-base-300 rounded-md py-2 text-center'>
+                <TabList className='bg-[#009688] bg-opacity-50 rounded-md py-2 text-center'>
                   <Tab>Description</Tab>
                   <Tab>Criteria</Tab>
                   <Tab>DeadLine</Tab>

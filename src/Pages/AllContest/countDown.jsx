@@ -30,35 +30,35 @@ const CountDown = ({ date }) => {
     }, 1000);
 
     return () => clearInterval(timerInterval);
-  }, []);
+  }, [calculateTimeLeft]);
 
   return (
     <div>
       {timeLeft.isActive ? (
         <div className='flex  justify-center gap-4 mt-10'>
           <div>
-            <div className='bg-fuchsia-600 p-3 rounded  text-white'>
+            <div className='bg-[#009688] p-3 rounded  text-white'>
               {timeLeft.days}
             </div>
 
             <div className='pt-2 text-xl'>days,</div>
           </div>
           <div>
-            <div className='bg-fuchsia-600 p-3 rounded  text-white'>
+            <div className='bg-[#009688] p-3 rounded  text-white'>
               {timeLeft.hours}
             </div>
 
             <div className='pt-2 text-xl'>hours, </div>
           </div>
           <div>
-            <div className='bg-fuchsia-600 p-3 rounded  text-white'>
+            <div className='bg-[#009688] p-3 rounded  text-white'>
               {timeLeft.minutes}
             </div>
 
             <div className='pt-2 text-xl'>min,</div>
           </div>
           <div>
-            <div className='bg-fuchsia-600 p-3 rounded  text-white'>
+            <div className='bg-[#009688] p-3 rounded  text-white'>
               {timeLeft.seconds}
             </div>
 
@@ -68,22 +68,22 @@ const CountDown = ({ date }) => {
       ) : (
         <div className='flex  justify-center gap-4 mt-10'>
           <div>
-            <div className='bg-fuchsia-600 p-3 rounded  text-white'>0</div>
+            <div className='bg-[#009688] p-3 rounded  text-white'>0</div>
 
             <div className='pt-2 text-xl'>days,</div>
           </div>
           <div>
-            <div className='bg-fuchsia-600 p-3 rounded  text-white'>0</div>
+            <div className='bg-[#009688] p-3 rounded  text-white'>0</div>
 
             <div className='pt-2 text-xl'>hours, </div>
           </div>
           <div>
-            <div className='bg-fuchsia-600 p-3 rounded  text-white'>0</div>
+            <div className='bg-[#009688] p-3 rounded  text-white'>0</div>
 
             <div className='pt-2 text-xl'>min,</div>
           </div>
           <div>
-            <div className='bg-fuchsia-600 p-3 rounded  text-white'>0</div>
+            <div className='bg-[#009688] p-3 rounded  text-white'>0</div>
 
             <div className='pt-2 text-xl'>sec</div>
           </div>

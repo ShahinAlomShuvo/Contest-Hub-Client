@@ -132,7 +132,7 @@ const CheckoutForm = () => {
         />
         <div className='flex justify-center'>
           <button
-            className='btn btn-primary my-16'
+            className='bg-[#009688] px-4 lg:px-8 rounded-xl btn  text-white transition duration-300 hover:bg-[#00796b] transform  active:bg-[#005a4b] active:scale-95 mt-6 border-none'
             type='submit'
             disabled={!stripe || !clientInfo?.clientSecret}
           >
