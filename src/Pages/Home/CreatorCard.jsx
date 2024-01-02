@@ -1,23 +1,10 @@
-import AOS from "aos";
-import "aos/dist/aos.css";
-import { useEffect } from "react";
-
 const CreatorCard = ({ data }) => {
-  useEffect(() => {
-    AOS.init({
-      duration: 4000,
-    });
-  }, []);
-
-  const desc = data.contestDescription.slice(0, 120);
+  const desc = data.contestDescription.slice(0, 130);
   return (
-    <div
-      data-aos='flip-down'
-      className='w-full max-w-md px-8 py-4 mt-16 bg-white rounded-lg shadow-lg border text-center ml-10'
-    >
+    <div className='w-full max-w-md px-8 py-4 mt-16 bg-white rounded-lg shadow-lg border text-center ml-10'>
       <div className='flex justify-center -mt-16 '>
         <img
-          className='object-cover w-24 h-24 border-2 border-blue-500 rounded-full  '
+          className='object-cover w-24 h-24 ring-4 ring-[#009688] rounded-full  '
           alt='Testimonial avatar'
           src={data.image}
         />
