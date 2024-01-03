@@ -6,6 +6,7 @@ import { imgUpload } from "../../Utility/utility";
 import useAuth from "../../Hook/useAuth";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
+import { useEffect } from "react";
 
 const UpdateContest = () => {
   const { id } = useParams();
@@ -14,7 +15,7 @@ const UpdateContest = () => {
 
   const navigate = useNavigate();
 
-  const { data: singleContest = [] } = useQuery({
+  const { isPending, data: singleContest = [] } = useQuery({
     queryKey: ["singleData", id],
     queryFn: async () => {
       const res = await axiosSecure(`/contest/${id}`);
@@ -25,21 +26,23 @@ const UpdateContest = () => {
   const {
     register,
     handleSubmit,
-    reset,
+    setValue,
     formState: { errors },
-  } = useForm({
-    defaultValues: {
-      name: singleContest.name,
-      entryFee: singleContest.entryFee,
-      prizeMoney: singleContest.prizeMoney,
-      tags: singleContest.tags,
-      image: null,
-      banner: null,
-      deadline: singleContest.deadline,
-      description: singleContest.description,
-      task: singleContest.task,
-    },
-  });
+  } = useForm();
+
+  useEffect(() => {
+    if (!isPending && singleContest) {
+      setValue("name", singleContest.name || "");
+      setValue("entryFee", singleContest.entryFee || "");
+      setValue("prizeMoney", singleContest.prizeMoney || "");
+      setValue("tags", singleContest.tags || "");
+      setValue("image", null);
+      setValue("banner", null);
+      setValue("deadline", singleContest.deadline || "");
+      setValue("description", singleContest.description || "");
+      setValue("task", singleContest.task || "");
+    }
+  }, [isPending, singleContest, setValue]);
 
   const SubmitHandler = async (data) => {
     const {

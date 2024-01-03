@@ -17,27 +17,27 @@ const SubmissionTableRow = ({ row }) => {
   });
 
   const handleWinner = async () => {
-    const res = await axiosSecure.patch(
-      `/contest/winner/${contestId}/${email}`
-    );
-
     if (getWinnerEmail.length > 0) {
       return Swal.fire({
         icon: "error",
         title: "Oops...",
         text: "Winner Is Declared Already",
       });
-    }
+    } else {
+      const res = await axiosSecure.patch(
+        `/contest/winner/${contestId}/${email}`
+      );
 
-    console.log(res);
-    if (res.status === 200) {
-      refetch();
-      setDisable(true);
-      Swal.fire({
-        title: "Congratulations",
-        text: "You Select The Winner",
-        icon: "success",
-      });
+      console.log(res);
+      if (res.status === 200) {
+        refetch();
+        setDisable(true);
+        Swal.fire({
+          title: "Congratulations",
+          text: "You Select The Winner",
+          icon: "success",
+        });
+      }
     }
   };
 
