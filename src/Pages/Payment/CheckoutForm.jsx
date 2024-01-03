@@ -103,47 +103,61 @@ const CheckoutForm = () => {
   };
 
   return (
-    <div className='space-y-16 border-2 mx-auto w-[370px] md:w-[600px]  lg:w-[800px]   p-10 shadow-2xl bg-white rounded-lg my-20'>
+    <div className='grid md:grid-cols-2 bg-[#D5F7E6]'>
       <div>
-        <h2 className='text-center text-2xl md:text-3xl font-semibold'>
-          Payment for:{clientInfo?.name} Contest
-        </h2>
-        <p className='text-center mt-4 md:text-xl font-semibold'>
-          Payment Amount:${clientInfo?.entryFee}
-        </p>
+        <img
+          src='https://img.freepik.com/premium-vector/flat-modern-illustration-mobile-banking_203633-8162.jpg?w=740'
+          alt=''
+        />
       </div>
 
-      <form onSubmit={handleSubmit}>
-        <CardElement
-          options={{
-            style: {
-              base: {
-                fontSize: "16px",
-                color: "#000000",
-                "::placeholder": {
-                  color: "#aab7c4",
+      <div className='order-first flex flex-col justify-center px-6 '>
+        <div className='py-10'>
+          <h2 className='text-center text-2xl md:text-3xl font-semibold '>
+            Payment for:{clientInfo?.name} Contest
+          </h2>
+          <p className='text-center mt-4 md:text-xl font-semibold'>
+            Payment Amount:${clientInfo?.entryFee}
+          </p>
+        </div>
+
+        <form
+          onSubmit={handleSubmit}
+          className='py-10 border border-[#009688] rounded space-y-6 px-4'
+        >
+          <CardElement
+            options={{
+              style: {
+                base: {
+                  fontSize: "16px",
+                  color: "#000000",
+                  "::placeholder": {
+                    color: "#aab7c4",
+                  },
+                },
+                invalid: {
+                  color: "#9e2146",
                 },
               },
-              invalid: {
-                color: "#9e2146",
-              },
-            },
-          }}
-        />
-        <div className='flex justify-center'>
-          <button
-            className='bg-[#009688] px-4 lg:px-8 rounded-xl btn  text-white transition duration-300 hover:bg-[#00796b] transform  active:bg-[#005a4b] active:scale-95 mt-6 border-none'
-            type='submit'
-            disabled={!stripe || !clientInfo?.clientSecret}
-          >
-            Pay
-          </button>
-        </div>
-        <p className='text-red-600'>{error}</p>
-        {transitionId && (
-          <p className='text-green-600'>Your Transition id is:{transitionId}</p>
-        )}
-      </form>
+            }}
+          />
+          <div className='flex justify-center'>
+            <button
+              className='bg-[#009688] px-4 lg:px-8 rounded-xl btn  text-white transition duration-300 hover:bg-[#00796b] transform  active:bg-[#005a4b] active:scale-95 mt-6 border-none'
+              type='submit'
+              disabled={!stripe || !clientInfo?.clientSecret}
+            >
+              Pay
+            </button>
+          </div>
+          <p className='text-red-600 text-center'>{error}</p>
+          {transitionId && (
+            <p className='text-green-600 text-center'>
+              Your Transition id is:{transitionId}
+            </p>
+          )}
+        </form>
+      </div>
     </div>
   );
 };
