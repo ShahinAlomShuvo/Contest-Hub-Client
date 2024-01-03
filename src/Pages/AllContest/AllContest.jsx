@@ -4,13 +4,9 @@ import "react-tabs/style/react-tabs.css";
 import useContest from "../../Hook/useContest";
 import ContestTab from "./ContestTab";
 import { Helmet } from "react-helmet";
-import useCreator from "../../Hook/useCreator";
 
 const AllContest = () => {
   const [contest, isPending] = useContest();
-
-  const [isCreator] = useCreator();
-  console.log(isCreator);
 
   const tags = [
     "all",
