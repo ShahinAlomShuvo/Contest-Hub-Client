@@ -42,7 +42,7 @@ const HeroSection = ({ setSearchValue }) => {
                 {...register("search", { required: true })}
                 type='text'
                 placeholder='Search by tag'
-                className='py-4 px-4 rounded-xl w-full rounded-r-none outline-primary-content'
+                className='py-4 px-4 rounded-xl w-full rounded-r-none outline-primary-content text-gray-500'
               />
               <button className='bg-[#009688] px-4 lg:px-8 rounded-xl rounded-l-none transition duration-300 hover:bg-[#00796b] transform  active:bg-[#005a4b] active:scale-95'>
                 Search

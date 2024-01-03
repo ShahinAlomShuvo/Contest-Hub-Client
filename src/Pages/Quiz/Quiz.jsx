@@ -51,7 +51,7 @@ const Quiz = () => {
               />
             ) : (
               <>
-                <div className='bg-success m-5 p-10 rounded'>
+                <div className='bg-[#009688] m-5 p-10 rounded'>
                   <span className='font-medium text-2xl'>
                     {currentQuestion + 1}.
                   </span>
@@ -63,7 +63,7 @@ const Quiz = () => {
                   {QuizData[currentQuestion].options.map((option, index) => {
                     return (
                       <button
-                        className={`btn mx-4 mt-4 btn-success  hover:bg-[#0F1F33] hover:text-white ${
+                        className={`btn mx-4 mt-4 bg-[#009688] btn-outline  hover:bg-[#0F1F33] hover:text-white ${
                           clicked == index + 1
                             ? "bg-[#0F1F33] text-white "
                             : "null"
@@ -78,7 +78,7 @@ const Quiz = () => {
                 </div>
                 <button
                   onClick={nextQuestion}
-                  className='btn btn-success mt-1  mx-4'
+                  className='btn bg-[#009688] border-none mt-1  mx-4'
                 >
                   Next
                 </button>

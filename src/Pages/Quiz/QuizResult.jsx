@@ -7,7 +7,10 @@ const QuizResult = ({ score, totalScore, tryAgain }) => {
             <div className='space-y-2'>
               <p className='text-white text-2xl'>You Got:{score}</p>
               <p className='text-white text-2xl'>Total Marks:{totalScore}</p>
-              <button onClick={tryAgain} className='btn btn-success'>
+              <button
+                onClick={tryAgain}
+                className='btn bg-[#009688] border-none'
+              >
                 Try Again
               </button>
             </div>
