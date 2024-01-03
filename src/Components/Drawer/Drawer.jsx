@@ -17,8 +17,8 @@ const Drawer = () => {
   const [users] = useUser();
   const role = users.role;
   return (
-    <div>
-      <div className='drawer z-10 lg:drawer-open'>
+    <div className='bg-[#009688] bg-opacity-70'>
+      <div className='drawer z-10 lg:drawer-open '>
         <input id='my-drawer-2' type='checkbox' className='drawer-toggle' />
         <div className='drawer-content flex flex-col items-start justify-start w-full'>
           {/* Page content here */}
@@ -32,7 +32,7 @@ const Drawer = () => {
             aria-label='close sidebar'
             className='drawer-overlay'
           ></label>
-          <ul className='menu p-4 w-80 min-h-full bg-base-200 text-base-content'>
+          <ul className='menu p-4 w-80  text-base-content'>
             {/* admin routes  */}
             {role === "admin" && (
               <>

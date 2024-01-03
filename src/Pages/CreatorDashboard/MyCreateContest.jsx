@@ -72,7 +72,7 @@ const MyCreateContest = () => {
             <table className='table'>
               {/* head */}
               <thead>
-                <tr className='text-xl text-white  bg-[#4B4436] bg-opacity-70  h-20 '>
+                <tr className='text-xl text-white  bg-[#009688]  h-20 '>
                   <th>#</th>
                   <th>Image</th>
                   <th>Name</th>
@@ -134,7 +134,7 @@ const MyCreateContest = () => {
                     <td className='font-semibold text-gray-700'>
                       <Link to={`/dashboard/seeSubmission/${contest._id}`}>
                         <button
-                          className={`btn btn-sm btn-info ${
+                          className={`btn btn-sm bg-[#009688] border-none ${
                             contest.status === "pending" && "btn-disabled"
                           }`}
                         >
