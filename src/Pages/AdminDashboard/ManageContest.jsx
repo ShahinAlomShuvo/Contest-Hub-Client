@@ -105,7 +105,7 @@ const ManageContest = () => {
                   <th>
                     <button
                       onClick={() => handleStatus(contest)}
-                      className={`btn btn-secondary text-white ${
+                      className={`btn bg-[#009688] border-none hover:text-black text-white ${
                         contest.status === "accepted" && "btn-disabled"
                       }`}
                     >
