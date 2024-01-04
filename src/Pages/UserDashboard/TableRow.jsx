@@ -28,19 +28,37 @@ const TableRow = ({ contest, idx }) => {
       contestName: contest.name,
       submittedTask: data.submittedTask,
     };
-    console.log(submission);
 
-    const res = await axiosSecure.post("/contest-submitted-task", submission);
-    console.log(res.data);
-    if (res.status === 200) {
-      setIsOpen(false);
-      setDisable(true);
-      reset();
-      Swal.fire({
-        title: "Good job!",
-        text: "You submitted your task",
-        icon: "success",
-      });
+    try {
+      const res = await axiosSecure.post("/contest-submitted-task", submission);
+      console.log(res.data);
+      if (res.status === 200) {
+        setIsOpen(false);
+        setDisable(true);
+        reset();
+        Swal.fire({
+          title: "Good job!",
+          text: "You submitted your task",
+          icon: "success",
+        });
+      }
+    } catch (error) {
+      if (error.response && error.response.status === 400) {
+        setIsOpen(false);
+        Swal.fire({
+          title: "Duplicate Submission",
+          text: "You have already submitted for this contest.",
+          icon: "error",
+        });
+      } else {
+        console.error("Submission error:", error);
+
+        Swal.fire({
+          title: "Submission Error",
+          text: "There was an error submitting your task. Please try again later.",
+          icon: "error",
+        });
+      }
     }
   };
 
