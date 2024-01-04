@@ -73,7 +73,7 @@ const ManageContest = () => {
           <table className='table'>
             {/* head */}
             <thead>
-              <tr className='text-2xl text-white  bg-[#4B4436] bg-opacity-70  h-20 '>
+              <tr className='text-2xl text-white  bg-[#2A1E43]  h-20 '>
                 <th>#</th>
                 <th>Image</th>
                 <th>Name</th>
@@ -115,7 +115,7 @@ const ManageContest = () => {
                   <th>
                     <button
                       onClick={() => handleDelete(contest)}
-                      className='btn btn-ghost bg-red-600 hover:text-red-600'
+                      className='btn btn-ghost bg-red-600 hover:text-red-600 text-white'
                     >
                       <FaTrash className='' size={26}></FaTrash>
                     </button>

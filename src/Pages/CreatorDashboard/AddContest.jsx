@@ -58,7 +58,7 @@ const AddContest = () => {
         <title>ContestHub | AddContest</title>
       </Helmet>
 
-      <form onSubmit={handleSubmit(SubmitHandler)} className='space-y-8'>
+      <form onSubmit={handleSubmit(SubmitHandler)} className='space-y-8 '>
         <div className='grid gap-6 mb-6 md:grid-cols-2'>
           {/* contest name  */}
           <div>
