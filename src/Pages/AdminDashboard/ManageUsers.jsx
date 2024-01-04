@@ -19,13 +19,13 @@ const ManageUsers = () => {
     },
   });
 
-  const handleRole = async (role) => {
-    const res = await axiosSecure.patch(role);
+  const handleRole = async (user, role) => {
+    const res = await axiosSecure.patch(`/users/${user.email}/${role}`);
     if (res.status === 200) {
       refetch();
       Swal.fire({
         title: "Good job!",
-        text: "You clicked the button!",
+        text: "Role updated successfully!",
         icon: "success",
       });
     }
@@ -46,7 +46,7 @@ const ManageUsers = () => {
           <table className='table'>
             {/* head */}
             <thead>
-              <tr className='text-2xl text-white  bg-[#4B4436] bg-opacity-70  h-20 '>
+              <tr className='text-2xl text-white  bg-[#009688]  h-20 '>
                 <th>#</th>
 
                 <th>Name</th>
@@ -66,41 +66,21 @@ const ManageUsers = () => {
                   <td className='font-semibold text-xl text-gray-700'>
                     {user.email}
                   </td>
-                  <td className='font-semibold text-xl text-gray-700'>
+                  <td className='font-semibold text-xl text-gray-700 capitalize'>
                     {user.role}
                   </td>
                   <td className='font-semibold text-xl text-gray-700'>
-                    <div className='dropdown dropdown-end'>
-                      <div tabIndex={0} role='button' className='btn m-1'>
-                        Change Role
-                      </div>
-                      <ul className='dropdown-content z-[1] menu  shadow bg-base-100 rounded-box w-96 space-y-4 p-16'>
-                        <button
-                          onClick={() =>
-                            handleRole(`/users/${user.email}/admin`)
-                          }
-                          className='btn btn-primary'
-                        >
-                          Admin
-                        </button>
-                        <button
-                          onClick={() =>
-                            handleRole(`/users/${user.email}/creator`)
-                          }
-                          className='btn btn-primary'
-                        >
-                          Contest Creator
-                        </button>
-                        <button
-                          onClick={() =>
-                            handleRole(`/users/${user.email}/user`)
-                          }
-                          className='btn btn-primary'
-                        >
-                          User
-                        </button>
-                      </ul>
-                    </div>
+                    <select
+                      className='select select-bordered w-full max-w-xs bg-[#009688] text-white'
+                      onChange={(e) => handleRole(user, e.target.value)}
+                    >
+                      <option disabled selected>
+                        Select A Role
+                      </option>
+                      <option value='user'>User</option>
+                      <option value='creator'>Creator</option>
+                      <option value='admin'>Admin</option>
+                    </select>
                   </td>
                 </tr>
               ))}
