@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import ContestDeadline from "./ContestDeadline";
 import { useForm } from "react-hook-form";
 import useAuth from "../../Hook/useAuth";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../Hook/useAxiosSecure";
+import { Dialog, Transition } from "@headlessui/react";
 
 const TableRow = ({ contest, idx }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [disable, setDisable] = useState(false);
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
@@ -32,7 +33,7 @@ const TableRow = ({ contest, idx }) => {
     const res = await axiosSecure.post("/contest-submitted-task", submission);
     console.log(res.data);
     if (res.status === 200) {
-      setIsModalOpen(false);
+      setIsOpen(false);
       setDisable(true);
       reset();
       Swal.fire({
@@ -45,16 +46,16 @@ const TableRow = ({ contest, idx }) => {
 
   //   handle modal
 
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
+  function closeModal() {
+    setIsOpen(false);
+  }
 
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
+  function openModal() {
+    setIsOpen(true);
+  }
 
   return (
-    <tr key={contest._id}>
+    <tr>
       <th>{idx + 1}</th>
       <td>
         <div className='flex items-center gap-3'>
@@ -74,7 +75,9 @@ const TableRow = ({ contest, idx }) => {
           disabled={
             new Date(contest.deadline).getTime() <= new Date().getTime()
           }
-          className={`btn ${disable ? "btn-disabled" : ""}`}
+          className={`btn bg-[#009688] border-none ${
+            disable ? "btn-disabled" : ""
+          }`}
           data-modal-target='default-modal'
           data-modal-toggle='default-modal'
           type='button'
@@ -84,76 +87,72 @@ const TableRow = ({ contest, idx }) => {
         </button>
 
         {/* modal start from here  */}
+        {isOpen && (
+          <Transition appear show={isOpen} as={Fragment}>
+            <Dialog as='div' className='relative z-10' onClose={closeModal}>
+              <Transition.Child
+                as={Fragment}
+                enter='ease-out duration-300'
+                enterFrom='opacity-0'
+                enterTo='opacity-100'
+                leave='ease-in duration-200'
+                leaveFrom='opacity-100'
+                leaveTo='opacity-0'
+              >
+                <div className='fixed inset-0 bg-black/25' />
+              </Transition.Child>
 
-        {isModalOpen && (
-          <div
-            id='default-modal'
-            tabIndex='-1'
-            aria-hidden='true'
-            className='fixed top-0 right-0 bottom-0 z-50 overflow-y-auto overflow-x-hidden justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full'
-          >
-            <div className='relative p-4 w-full max-w-2xl max-h-full'>
-              {/* Modal content */}
-              <div className='relative bg-white rounded-lg shadow dark:bg-gray-700'>
-                {/* Modal header */}
-                <div className='flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600'>
-                  <button
-                    type='button'
-                    className='text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white'
-                    data-modal-hide='default-modal'
-                    onClick={closeModal}
+              <div className='fixed inset-0 overflow-y-auto'>
+                <div className='flex min-h-full items-center justify-center p-4 text-center'>
+                  <Transition.Child
+                    as={Fragment}
+                    enter='ease-out duration-300'
+                    enterFrom='opacity-0 scale-95'
+                    enterTo='opacity-100 scale-100'
+                    leave='ease-in duration-200'
+                    leaveFrom='opacity-100 scale-100'
+                    leaveTo='opacity-0 scale-95'
                   >
-                    <svg
-                      className='w-3 h-3'
-                      aria-hidden='true'
-                      xmlns='http://www.w3.org/2000/svg'
-                      fill='none'
-                      viewBox='0 0 14 14'
-                    >
-                      <path
-                        stroke='currentColor'
-                        strokeLinecap='round'
-                        strokeLinejoin='round'
-                        strokeWidth='2'
-                        d='m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6'
-                      />
-                    </svg>
-                    <span className='sr-only'>Close modal</span>
-                  </button>
-                </div>
-                {/* Modal body */}
-                <div className='p-4 md:p-5 space-y-4'>
-                  <form onSubmit={handleSubmit(onSubmit)}>
-                    <textarea
-                      {...register("submittedTask", {
-                        required: true,
-                      })}
-                      id='submittedTask'
-                      rows='10'
-                      className='block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
-                      placeholder='Submit your task here'
-                    ></textarea>
-                    {errors.submittedTask && (
-                      <span className='text-red-600 mt-8'>
-                        You Must Fulfil The Requirement
-                      </span>
-                    )}
-                    <input
-                      {...register("contestId")}
-                      type='hidden'
-                      value={contest._id}
-                    ></input>
+                    <Dialog.Panel className='w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all'>
+                      <Dialog.Title
+                        as='h3'
+                        className='text-lg font-medium leading-6 text-gray-900 pb-6'
+                      >
+                        Submit Your Answer
+                      </Dialog.Title>
+                      <form onSubmit={handleSubmit(onSubmit)}>
+                        <textarea
+                          {...register("submittedTask", {
+                            required: true,
+                          })}
+                          id='submittedTask'
+                          rows='6'
+                          className='textarea textarea-bordered w-full'
+                          placeholder='Submit your task here'
+                        ></textarea>
+                        {errors.submittedTask && (
+                          <span className='text-red-600 mt-8'>
+                            You Must Fulfil The Requirement
+                          </span>
+                        )}
+                        <input
+                          {...register("contestId")}
+                          type='hidden'
+                          value={contest._id}
+                        ></input>
 
-                    <div className='flex justify-end mt-4'>
-                      <button type='submit' className='btn btn-primary '>
-                        Submit
-                      </button>
-                    </div>
-                  </form>
+                        <div className='flex justify-end mt-4'>
+                          <button type='submit' className='btn btn-primary '>
+                            Submit
+                          </button>
+                        </div>
+                      </form>
+                    </Dialog.Panel>
+                  </Transition.Child>
                 </div>
               </div>
-            </div>
-          </div>
+            </Dialog>
+          </Transition>
         )}
       </td>
     </tr>
