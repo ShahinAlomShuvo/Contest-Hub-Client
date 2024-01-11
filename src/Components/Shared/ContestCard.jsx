@@ -17,14 +17,14 @@ const ContestCard = ({ items }) => {
       <Link to={`/allContest/${_id}`}>
         <div
           data-aos='zoom-in'
-          className='rounded-md hover:border-transparent hover:ring-4 ring-[#009688] transition duration-300'
+          className='rounded-md hover:border-transparent hover:ring-4 ring-[#009688] transition duration-300 shadow-xl'
         >
           <img
             className='h-36 w-full rounded-t-rounded-md rounded-t-md'
             src={image}
             alt=''
           />
-          <div className='flex  gap-3 items-center bg-gray-300 py-3 px-4 rounded-b-md overflow-hidden'>
+          <div className='flex  gap-3 items-center bg-white shadow-xl py-3 px-4 rounded-b-md overflow-hidden'>
             <img className='w-8 h-8 rounded-full' src={banner} alt='' />
             <h2 className='font-medium '>{name}</h2>
           </div>

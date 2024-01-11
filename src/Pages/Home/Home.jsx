@@ -10,6 +10,7 @@ import HeroSection from "./HeroSection";
 import TrustedBy from "./TrustedBy";
 import MyTeam from "./MyTeam";
 import SubscribeUs from "./SubscribeUs";
+import WorldWide from "./WorldWide";
 
 const Home = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -27,7 +28,8 @@ const Home = () => {
       <PopularContest></PopularContest>
       <MyTeam></MyTeam>
       <ContestWinner></ContestWinner>
-      <HowToSelect></HowToSelect>
+      {/* <HowToSelect></HowToSelect> */}
+      <WorldWide></WorldWide>
       <BestContestCreator></BestContestCreator>
       <SubscribeUs></SubscribeUs>
     </div>
