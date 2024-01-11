@@ -11,7 +11,7 @@ const MyTeam = () => {
         bgImageAlt='Parallax img'
         strength={-200}
       >
-        <div className='container mx-auto grid md:grid-cols-3 gap-10 py-10 px-4 xl:px-0'>
+        <div className='container mx-auto grid md:grid-cols-3 gap-10 py-10 px-6 xl:px-0'>
           <div className='text-white md:col-span-2 flex flex-col justify-center space-y-4'>
             <h2 className='text-4xl font-bold'>
               Be loved by the players in your league.

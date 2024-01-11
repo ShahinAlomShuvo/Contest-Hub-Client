@@ -1,6 +1,15 @@
+import { useEffect } from "react";
 import SectionHeader from "../../Components/Shared/SectionHeader";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const HowToSelect = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 3000,
+    });
+  }, []);
+
   return (
     <>
       <section className='py-10 bg-gray-100 sm:py-16 lg:py-24'>
@@ -12,7 +21,7 @@ const HowToSelect = () => {
           ></SectionHeader>
 
           <ul className='max-w-md mx-auto mt-16 space-y-12'>
-            <li className='relative flex items-start'>
+            <li data-aos='zoom-in' className='relative flex items-start'>
               <div
                 className='-ml-0.5 absolute mt-0.5 top-14 left-8 w-px border-l-4 border-dotted border-gray-300 h-full'
                 aria-hidden='true'
@@ -45,7 +54,7 @@ const HowToSelect = () => {
               </div>
             </li>
 
-            <li className='relative flex items-start'>
+            <li data-aos='zoom-in' className='relative flex items-start'>
               <div
                 className='-ml-0.5 absolute mt-0.5 top-14 left-8 w-px border-l-4 border-dotted border-gray-300 h-full'
                 aria-hidden='true'
@@ -79,7 +88,7 @@ const HowToSelect = () => {
               </div>
             </li>
 
-            <li className='relative flex items-start'>
+            <li data-aos='zoom-in' className='relative flex items-start'>
               <div className='relative flex items-center justify-center flex-shrink-0 w-16 h-16 bg-white rounded-full shadow'>
                 <svg
                   className='w-10 h-10 text-[#009688]'

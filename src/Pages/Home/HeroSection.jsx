@@ -1,7 +1,16 @@
 import { useForm } from "react-hook-form";
 import bgImage from "../../assets/Images/hero-bg.svg";
 import heroImage from "../../assets/Images/hero.svg";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 const HeroSection = ({ setSearchValue }) => {
+  useEffect(() => {
+    AOS.init({
+      duration: 3000,
+    });
+  }, []);
+
   const {
     register,
     handleSubmit,
@@ -22,8 +31,11 @@ const HeroSection = ({ setSearchValue }) => {
         backgroundPosition: "center",
       }}
     >
-      <div className='container mx-auto grid gap-10 md:grid-cols-2 '>
-        <div className='text-white flex flex-col justify-center space-y-6'>
+      <div className='container mx-auto grid gap-10 md:grid-cols-2 md:px-4 xl:px-0'>
+        <div
+          data-aos='fade-up'
+          className='text-white flex flex-col justify-center space-y-6'
+        >
           <h2 className='text-2xl md:text-3xl'>
             Manage your contest competitions with the right tools
           </h2>

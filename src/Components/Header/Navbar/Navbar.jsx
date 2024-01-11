@@ -14,7 +14,7 @@ const Navbar = () => {
       const res = await logOutUser();
       Swal.fire({
         title: "Congratulation!",
-        text: "Login Successful!",
+        text: "Log Out Successful!",
         icon: "success",
       });
       console.log(res);
@@ -49,7 +49,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className='bg-[#211835] text-white fixed w-full z-10'>
+    <div className='bg-[#211835] text-white fixed w-full z-10 lg:px-4 xl:px-0'>
       <nav className='navbar container mx-auto '>
         <div className='navbar-start'>
           <div className='dropdown'>
