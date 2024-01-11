@@ -1,8 +1,16 @@
 import bgImg from "../../assets/Images/bg-2.jpg";
 import feature from "../../assets/Images/features.webp";
 import { Parallax } from "react-parallax";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const MyTeam = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 3000,
+    });
+  }, []);
   return (
     <div>
       <Parallax
@@ -23,7 +31,7 @@ const MyTeam = () => {
               sports and games. Find out who is the best!
             </p>
           </div>
-          <div>
+          <div data-aos='zoom-in'>
             <img className='w-full' src={feature} alt='' />
           </div>
         </div>
