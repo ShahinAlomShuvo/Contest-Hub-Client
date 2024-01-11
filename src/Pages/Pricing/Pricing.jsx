@@ -1,4 +1,11 @@
 import { Helmet } from "react-helmet";
+import CommonBanner from "../../Components/Shared/CommonBanner";
+import bgImage from "../../assets/Images/pricing.jpg";
+import pricingIcon1 from "../../assets/Images/pricingIcon1.svg";
+import pricingIcon2 from "../../assets/Images/pricingIcon2.svg";
+import pricingIcon3 from "../../assets/Images/pricingIcon3.svg";
+import pricingIcon4 from "../../assets/Images/pricingIcon4.svg";
+import SubscribeUs from "../Home/SubscribeUs";
 
 const Pricing = () => {
   return (
@@ -6,223 +13,164 @@ const Pricing = () => {
       <Helmet>
         <title>ContestHub | Pricing</title>
       </Helmet>
-      <section className='py-10 bg-gray-900 sm:py-16 lg:py-24 '>
-        <div className='max-w-5xl px-4 mx-auto sm:px-6 lg:px-8 mt-16'>
-          <div className='grid grid-cols-1 md:items-stretch md:grid-cols-2 gap-x-12 lg:gap-x-20 gap-y-10'>
-            <div className='flex flex-col justify-between lg:py-5'>
-              <h2 className='text-3xl font-bold leading-tight text-white sm:text-4xl lg:leading-tight lg:text-5xl'>
-                Join to our membership partner & participated all contest
-              </h2>
+      <CommonBanner bgImage={bgImage} title={"Pricing"}></CommonBanner>
 
-              <div className='mt-auto'>
-                <div className='flex items-center'>
-                  <svg
-                    className='w-6 h-6 text-orange-500'
-                    xmlns='http://www.w3.org/2000/svg'
-                    viewBox='0 0 20 20'
-                    fill='currentColor'
-                  >
-                    <path d='M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z' />
-                  </svg>
-                  <svg
-                    className='w-6 h-6 text-orange-500'
-                    xmlns='http://www.w3.org/2000/svg'
-                    viewBox='0 0 20 20'
-                    fill='currentColor'
-                  >
-                    <path d='M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z' />
-                  </svg>
-                  <svg
-                    className='w-6 h-6 text-orange-500'
-                    xmlns='http://www.w3.org/2000/svg'
-                    viewBox='0 0 20 20'
-                    fill='currentColor'
-                  >
-                    <path d='M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z' />
-                  </svg>
-                  <svg
-                    className='w-6 h-6 text-orange-500'
-                    xmlns='http://www.w3.org/2000/svg'
-                    viewBox='0 0 20 20'
-                    fill='currentColor'
-                  >
-                    <path d='M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z' />
-                  </svg>
-                  <svg
-                    className='w-6 h-6 text-orange-500'
-                    xmlns='http://www.w3.org/2000/svg'
-                    viewBox='0 0 20 20'
-                    fill='currentColor'
-                  >
-                    <path d='M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z' />
-                  </svg>
-                </div>
-
-                <blockquote className='mt-6'>
-                  <p className='text-lg leading-relaxed text-white'>
-                    Get ready for unlimited contest excitement! With our
-                    one-time purchase, you can participate in all contests on
-                    ContestHub. Elevate your experience – choose your plan and
-                    dive into endless opportunities!
-                  </p>
-                </blockquote>
-
-                <div className='flex items-center mt-8'>
-                  <img
-                    className='flex-shrink-0 object-cover w-10 h-10 rounded-full'
-                    src='https://i.ibb.co/zXMCwsk/profile.jpg'
-                    alt=''
-                  />
-                  <div className='ml-4'>
-                    <p className='text-base font-semibold text-white'>
-                      Shahin Ali
-                    </p>
-                    <p className='mt-px text-sm text-gray-400'>CEO</p>
-                  </div>
-                </div>
+      <div className='bg-base-200 py-20 '>
+        <div className=' space-y-10 px-4 lg:px-0'>
+          <div className='lg:w-3/5 bg-white shadow-lg p-8 mx-auto space-y-8 px-4 md:px-16 lg:px-8 rounded-md hover:bg-base-300'>
+            <div className='flex justify-between'>
+              <div className='space-y-2'>
+                <h2 className='text-3xl text-[#2f363b] font-medium'>
+                  Full Package
+                </h2>
+                <p className='text-[#a5afb8]'>
+                  Complete access to all the ContestHub.
+                </p>
+              </div>
+              <div className='space-y-2'>
+                <p className='text-[#a5afb8]'>from</p>
+                <p className='text-[#2f363b]'>
+                  <span className='text-3xl  font-medium'>$97</span>
+                  <span className='text-sm'> /mo</span>
+                </p>
               </div>
             </div>
-
-            <div className=''>
-              <div className='overflow-hidden bg-white rounded-md'>
-                <div className='p-10'>
-                  <h3 className='text-xs font-semibold tracking-widest text-purple-600 uppercase'>
-                    Subscribe us
+            <div className='flex flex-col md:flex-row gap-4 justify-between '>
+              <ul className='grid md:grid-cols-2 jus gap-8 flex-1'>
+                <li className='flex items-center gap-4 text-[#a5afb8]'>
+                  <img className='w-10' src={pricingIcon1} alt='' />
+                  <span>COMPETITIONS</span>
+                </li>
+                <li className='flex items-center gap-4 text-[#a5afb8]'>
+                  <img className='w-10' src={pricingIcon2} alt='' />
+                  <span>REWARDS</span>
+                </li>
+                <li className='flex items-center gap-4 text-[#a5afb8]'>
+                  <img className='w-10' src={pricingIcon3} alt='' />
+                  <span>GALLERIES</span>
+                </li>
+                <li className='flex items-center gap-4 text-[#a5afb8]'>
+                  <img className='w-10' src={pricingIcon4} alt='' />
+                  <span>CAPTURES</span>
+                </li>
+              </ul>
+              <button className='bg-[#009688] px-4 lg:px-8 rounded-full btn  text-white transition duration-300 hover:bg-[#00796b] transform  active:bg-[#005a4b] active:scale-95 mt-6 border-none '>
+                Buy Plan
+              </button>
+            </div>
+          </div>
+          {/* individual card 1  */}
+          <div className='lg:w-3/5 mx-auto border-2 p-5 rounded-md hover:bg-white hover:shadow-lg transition'>
+            <div className='flex justify-between  flex-col-reverse md:flex-row gap-4'>
+              <div className='flex flex-wrap md:flex-nowrap justify-center gap-4'>
+                <img className='w-24 h-24' src={pricingIcon1} alt='' />
+                <div className='space-y-2 text-center md:text-left'>
+                  <h3 className='text-[#2f363b] text-2xl font-medium'>
+                    Competitions
                   </h3>
-                  <p className='mt-4 text-6xl font-bold text-black'>$79</p>
-
-                  <ul className='flex flex-col mt-8 space-y-4'>
-                    <li className='inline-flex items-center space-x-2'>
-                      <svg
-                        className='flex-shrink-0 w-5 h-5 text-green-500'
-                        xmlns='http://www.w3.org/2000/svg'
-                        viewBox='0 0 20 20'
-                        fill='currentColor'
-                      >
-                        <path
-                          fill-rule='evenodd'
-                          d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
-                          clip-rule='evenodd'
-                        />
-                      </svg>
-                      <span className='text-base font-medium text-gray-900'>
-                        {" "}
-                        Access All Contest
-                      </span>
-                    </li>
-
-                    <li className='inline-flex items-center space-x-2'>
-                      <svg
-                        className='flex-shrink-0 w-5 h-5 text-green-500'
-                        xmlns='http://www.w3.org/2000/svg'
-                        viewBox='0 0 20 20'
-                        fill='currentColor'
-                      >
-                        <path
-                          fill-rule='evenodd'
-                          d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
-                          clip-rule='evenodd'
-                        />
-                      </svg>
-                      <span className='text-base font-medium text-gray-900'>
-                        Opportunity for join us
-                      </span>
-                    </li>
-
-                    <li className='inline-flex items-center space-x-2'>
-                      <svg
-                        className='flex-shrink-0 w-5 h-5 text-green-500'
-                        xmlns='http://www.w3.org/2000/svg'
-                        viewBox='0 0 20 20'
-                        fill='currentColor'
-                      >
-                        <path
-                          fill-rule='evenodd'
-                          d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
-                          clip-rule='evenodd'
-                        />
-                      </svg>
-                      <span className='text-base font-medium text-gray-900'>
-                        {" "}
-                        120+ Contest Access{" "}
-                      </span>
-                    </li>
-
-                    <li className='inline-flex items-center space-x-2'>
-                      <svg
-                        className='flex-shrink-0 w-5 h-5 text-green-500'
-                        xmlns='http://www.w3.org/2000/svg'
-                        viewBox='0 0 20 20'
-                        fill='currentColor'
-                      >
-                        <path
-                          fill-rule='evenodd'
-                          d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
-                          clip-rule='evenodd'
-                        />
-                      </svg>
-                      <span className='text-base font-medium text-gray-900'>
-                        Special Rewards
-                      </span>
-                    </li>
-
-                    <li className='inline-flex items-center space-x-2'>
-                      <svg
-                        className='flex-shrink-0 w-5 h-5 text-green-500'
-                        xmlns='http://www.w3.org/2000/svg'
-                        viewBox='0 0 20 20'
-                        fill='currentColor'
-                      >
-                        <path
-                          fill-rule='evenodd'
-                          d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
-                          clip-rule='evenodd'
-                        />
-                      </svg>
-                      <span className='pb-0.5 text-base font-medium text-gray-900 border-b border-black border-dashed'>
-                        {" "}
-                        Get Premium Support{" "}
-                      </span>
-                    </li>
-                  </ul>
-
-                  <a
-                    href='#'
-                    title=''
-                    className='inline-flex items-center justify-center w-full px-8 py-4 mt-10 font-semibold text-white transition-all duration-200 rounded-full bg-gradient-to-r from-fuchsia-600 to-blue-600 hover:opacity-80 focus:opacity-80'
-                    role='button'
-                  >
-                    {" "}
-                    Get full access{" "}
-                  </a>
-
-                  <div className='flex items-center mt-5'>
-                    <svg
-                      className='flex-shrink-0 w-5 h-5 text-gray-500'
-                      xmlns='http://www.w3.org/2000/svg'
-                      fill='none'
-                      viewBox='0 0 24 24'
-                      stroke='currentColor'
-                    >
-                      <path
-                        stroke-linecap='round'
-                        stroke-linejoin='round'
-                        stroke-width='2'
-                        d='M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z'
-                      />
-                    </svg>
-                    <span className='ml-2 text-sm text-gray-500'>
-                      {" "}
-                      14 Days Moneyback Guarantee{" "}
-                    </span>
-                  </div>
+                  <p className='text-[#a5afb8]  md:w-[90%] ='>
+                    Easily set up and run giveaways, contests & sweepstakes that
+                    drive real user engagement.
+                  </p>
+                  <button className='bg-[#009688] px-4 lg:px-8 rounded-full btn  text-white transition duration-300 hover:bg-[#00796b] transform  active:bg-[#005a4b] active:scale-95 border-none btn-sm'>
+                    Buy Plan
+                  </button>
                 </div>
+              </div>
+              <div className='space-y-2 md:w-32 text-center md:text-left'>
+                <p className='text-[#a5afb8]'>from</p>
+                <p className='text-[#2f363b]'>
+                  <span className='text-3xl  font-medium'>$10</span>
+                  <span className='text-sm'> /mo</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          {/* individual card 2  */}
+          <div className='lg:w-3/5 mx-auto border-2 p-5 rounded-md hover:bg-white hover:shadow-lg transition'>
+            <div className='flex justify-between  flex-col-reverse md:flex-row gap-4'>
+              <div className='flex flex-wrap md:flex-nowrap justify-center gap-4'>
+                <img className='w-24 h-24' src={pricingIcon2} alt='' />
+                <div className='space-y-2 text-center md:text-left'>
+                  <h3 className='text-[#2f363b] text-2xl font-medium'>
+                    Rewards
+                  </h3>
+                  <p className='text-[#a5afb8]  md:w-[90%] ='>
+                    Create unlockable rewards using millions of action
+                    combinations in minutes.
+                  </p>
+                  <button className='bg-[#009688] px-4 lg:px-8 rounded-full btn  text-white transition duration-300 hover:bg-[#00796b] transform  active:bg-[#005a4b] active:scale-95 border-none btn-sm'>
+                    Buy Plan
+                  </button>
+                </div>
+              </div>
+              <div className='space-y-2 md:w-32 text-center md:text-left'>
+                <p className='text-[#a5afb8]'>from</p>
+                <p className='text-[#2f363b]'>
+                  <span className='text-3xl  font-medium'>$29</span>
+                  <span className='text-sm'> /mo</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          {/* individual card 3  */}
+          <div className='lg:w-3/5 mx-auto border-2 p-5 rounded-md hover:bg-white hover:shadow-lg transition'>
+            <div className='flex justify-between  flex-col-reverse md:flex-row gap-4'>
+              <div className='flex flex-wrap md:flex-nowrap justify-center gap-4'>
+                <img className='w-24 h-24' src={pricingIcon3} alt='' />
+                <div className='space-y-2 text-center md:text-left'>
+                  <h3 className='text-[#2f363b] text-2xl font-medium'>
+                    Galleries
+                  </h3>
+                  <p className='text-[#a5afb8]  md:w-[90%] ='>
+                    Collect, curate & display the content that matters to your
+                    business.
+                  </p>
+                  <button className='bg-[#009688] px-4 lg:px-8 rounded-full btn  text-white transition duration-300 hover:bg-[#00796b] transform  active:bg-[#005a4b] active:scale-95 border-none btn-sm'>
+                    Buy Plan
+                  </button>
+                </div>
+              </div>
+              <div className='space-y-2 md:w-32 text-center md:text-left'>
+                <p className='text-[#a5afb8]'>from</p>
+                <p className='text-[#2f363b]'>
+                  <span className='text-3xl  font-medium'>$29</span>
+                  <span className='text-sm'> /mo</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          {/* individual card 1  */}
+          <div className='lg:w-3/5 mx-auto border-2 p-5 rounded-md hover:bg-white hover:shadow-lg transition'>
+            <div className='flex justify-between  flex-col-reverse md:flex-row gap-4'>
+              <div className='flex flex-wrap md:flex-nowrap justify-center gap-4'>
+                <img className='w-24 h-24' src={pricingIcon4} alt='' />
+                <div className='space-y-2 text-center md:text-left'>
+                  <h3 className='text-[#2f363b] text-2xl font-medium'>
+                    Captures
+                  </h3>
+                  <p className='text-[#a5afb8]  md:w-[90%] ='>
+                    Target beautiful messages or opt-in forms to right users at
+                    the right time to build your email list & grow your
+                    business.
+                  </p>
+                  <button className='bg-[#009688] px-4 lg:px-8 rounded-full btn  text-white transition duration-300 hover:bg-[#00796b] transform  active:bg-[#005a4b] active:scale-95 border-none btn-sm'>
+                    Buy Plan
+                  </button>
+                </div>
+              </div>
+              <div className='space-y-2 md:w-32 text-center md:text-left'>
+                <p className='text-[#a5afb8]'>from</p>
+                <p className='text-[#2f363b]'>
+                  <span className='text-3xl  font-medium'>$29</span>
+                  <span className='text-sm'> /mo</span>
+                </p>
               </div>
             </div>
           </div>
         </div>
-        <hr />
-      </section>
+      </div>
+      <SubscribeUs></SubscribeUs>
     </>
   );
 };
