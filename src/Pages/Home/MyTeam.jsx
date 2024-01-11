@@ -4,6 +4,7 @@ import { Parallax } from "react-parallax";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import { Typewriter } from "react-simple-typewriter";
 
 const MyTeam = () => {
   useEffect(() => {
@@ -22,7 +23,18 @@ const MyTeam = () => {
         <div className='container mx-auto grid md:grid-cols-3 gap-10 py-10 px-6 xl:px-0'>
           <div className='text-white md:col-span-2 flex flex-col justify-center space-y-4'>
             <h2 className='text-4xl font-bold'>
-              Be loved by the players in your league.
+              <Typewriter
+                words={[
+                  "Be loved by the players in your league. ",
+                  " Be friendly with your team member.",
+                ]}
+                loop={true}
+                cursor
+                cursorStyle='|'
+                typeSpeed={70}
+                deleteSpeed={50}
+                delaySpeed={1000}
+              />
             </h2>
             <p>
               Create and customize teams and players. Get access to many

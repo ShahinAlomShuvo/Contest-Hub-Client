@@ -23,10 +23,10 @@ const Home = () => {
       {/* <Hero setSearchValue={setSearchValue}></Hero> */}
       <HeroSection setSearchValue={setSearchValue}></HeroSection>
       {searchValue && <SearchResult value={searchValue}></SearchResult>}
+      <TrustedBy></TrustedBy>
       <PopularContest></PopularContest>
       <MyTeam></MyTeam>
       <ContestWinner></ContestWinner>
-      <TrustedBy></TrustedBy>
       <HowToSelect></HowToSelect>
       <BestContestCreator></BestContestCreator>
       <SubscribeUs></SubscribeUs>
