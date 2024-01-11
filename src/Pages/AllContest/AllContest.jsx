@@ -48,7 +48,7 @@ const AllContest = () => {
               selectedIndex={tabIndex}
               onSelect={(index) => setTabIndex(index)}
             >
-              <TabList className=' bg-[#009688] bg-opacity-50 py-6 rounded-md mx-4 lg:mx-0'>
+              <TabList className=' bg-[#009688] bg-opacity-50 py-6 rounded-md mx-4 xl:mx-0'>
                 <Tab>All</Tab>
                 <Tab>Gaming Contest</Tab>
                 <Tab>Article Writing</Tab>

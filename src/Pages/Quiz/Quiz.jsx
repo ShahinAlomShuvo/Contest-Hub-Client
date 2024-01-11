@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { QuizData } from "./QuizData";
 import QuizResult from "./QuizResult";
+import { Helmet } from "react-helmet";
+import bgImage from "../../assets/Images/quiz.jpg";
+import CommonBanner from "../../Components/Shared/CommonBanner";
+import MyTeam from "../Home/MyTeam";
 
 const Quiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -33,14 +37,12 @@ const Quiz = () => {
 
   return (
     <>
-      <div className='bg-[#0F1F33] text-center py-16'>
-        <div className='text-center space-y-4 py-10'>
-          <h2 className='text-4xl font-semibold text-white'>Play Quiz</h2>
-          <p className='text-gray-500 w-4/5 lg:w-1/3 mx-auto'>
-            Get Ready to test your wits and compete for glory
-          </p>
-        </div>
+      <Helmet>
+        <title>ContestHub | Quiz</title>
+      </Helmet>
+      <CommonBanner bgImage={bgImage} title={"Play Quiz"}></CommonBanner>
 
+      <div className='bg-[#0F1F33] text-center py-16'>
         <div className='flex justify-center items-center'>
           <div className='w-[500px] bg-[#19273A] rounded-md py-6 px-4'>
             {showResult ? (
@@ -87,6 +89,7 @@ const Quiz = () => {
           </div>
         </div>
       </div>
+      <MyTeam></MyTeam>
     </>
   );
 };
