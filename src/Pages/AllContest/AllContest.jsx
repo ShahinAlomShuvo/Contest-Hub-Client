@@ -4,6 +4,8 @@ import "react-tabs/style/react-tabs.css";
 import useContest from "../../Hook/useContest";
 import ContestTab from "./ContestTab";
 import { Helmet } from "react-helmet";
+import CommonBanner from "../../Components/Shared/CommonBanner";
+import bgImage from "../../assets/Images/background.jpg";
 
 const AllContest = () => {
   const [contest, isPending] = useContest();
@@ -37,6 +39,7 @@ const AllContest = () => {
       <Helmet>
         <title>ContestHub | All Contest</title>
       </Helmet>
+      <CommonBanner bgImage={bgImage} title={"All Contest"}></CommonBanner>
 
       <div className='bg-base-300 min-h-screen pt-16'>
         <div className='py-10 container mx-auto'>

@@ -3,7 +3,7 @@ const TopWinner = ({ winner }) => {
     <>
       <div data-aos='flip-left'>
         <img
-          className='object-cover mx-auto rounded-lg w-28 h-28'
+          className='object-cover mx-auto rounded-lg w-28 h-28 '
           src={winner.image}
         />
         <p className='mt-8 text-lg font-semibold leading-tight text-black'>
